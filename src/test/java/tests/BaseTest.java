@@ -7,12 +7,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
+import pages.MainPage;
 import steps.LoginStep;
 
 public class BaseTest {
 
     LoginPage loginPage;
     LoginStep loginStep;
+    MainPage mainPage;
 
     @BeforeMethod
     public void setUp() {
@@ -24,10 +26,11 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         Configuration.browserCapabilities = options;
-        Configuration.assertionMode = AssertionMode.SOFT;
+//        Configuration.assertionMode = AssertionMode.SOFT;
 
-        loginPage = new LoginPage();
         loginStep = new LoginStep();
+        loginPage = new LoginPage();
+        mainPage = new MainPage();
     }
 
     @AfterMethod

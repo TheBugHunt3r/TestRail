@@ -1,58 +1,38 @@
 package pages;
 
 import com.codeborne.selenide.Selenide;
-import dto.Account;
-import tests.BaseTest;
-import wrappers.Input;
-import wrappers.Picklist;
+import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class LoginPage extends BaseTest {
+public class LoginPage extends BasePage {
 
-    /*private final String FIRST_NAME = "//*[@id='first_name']";
-    private final String LAST_NAME = "//*[@id='last_name']";
-    private final String WORK_EMAIL = "//*[@id='email']";
-    private final String WORK_EMAIL = "//*[@id='phone']";
-    private final String COMPANY_NAME = "//*[@id='organization']";
-    private final String COUNTRY = "//*[@id='last_name']";
-    private final String EXPECTED_USERS = "//*[@id='last_name']";
-    private final String WEB_ADDRESS = "//*[@id='last_name']";
-    private final String CREATE_ACCOUNT_BUTTON = "//*[@id='last_name']";*/
+    private SelenideElement EMAIL_FIELD = $x("//*[@id='name']");
+    private SelenideElement PASSWORD_FIELD = $x("//*[@id='password']");
+    private SelenideElement LOGIN_BUTTON = $x("//*[@id='button_primary']");
+    private SelenideElement ERROR_MESSAGE = $x("//div[@class='loginpage-message-image loginpage-message ']");
+
+    public LoginPage() {
+        super();
+    }
 
     public LoginPage open() {
-        Selenide.open("https://secure.testrail.com/customers/testrail/trial/?type=signup");
+        Selenide.open(BASE_URL);
         return this;
     }
 
-    public LoginPage createAccount() {
-        Account account = Account.builder()
-                .first_name("First Name")
-                .last_name("Last Name")
-                .email("Work Email")
-                .phone("Phone Number")
-                .company("Company name")
-                .country("Country")
-                .expected_users("How many users do you expect to access TestRail?")
-                .web_address("Web Address")
-                .build();
+    public LoginPage LogIn(String email, String password) {
+        EMAIL_FIELD.setValue(email);
+        PASSWORD_FIELD.setValue(password);
+        LOGIN_BUTTON.click();
         return this;
     }
 
-    public LoginPage createAccount(Account account) {
-        new Input("First Name").write(account.getFirst_name());
-        new Input("Last Name").write(account.getLast_name());
-        new Input("Work Email").write(account.getEmail());
-        new Input("Phone Number").write(account.getPhone());
-        new Input("Company name").write(account.getCompany());
-        new Picklist("Country").select("China");
-        new Picklist("How many users do you expect to access TestRail?").select("1");
-        new Input("Web Address").write(account.getWeb_address());
-        return this;
+
+    public SelenideElement getErrorMessage(String expectedText) {
+        return ERROR_MESSAGE.shouldBe(visible).shouldHave(text(expectedText));
     }
 
-    public LoginPage clickCreateAccountButton() {
-        $x("//button[@type='submit']").click();
-        return this;
-    }
 }
