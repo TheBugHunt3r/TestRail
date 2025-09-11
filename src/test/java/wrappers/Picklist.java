@@ -17,6 +17,6 @@ public class Picklist {
     }
 
     private SelenideElement getPicklistElement() {
-        return $x(String.format("//label[contains(text(),'%s')]", label));
+        return $x("//label[contains(text(), '" + label + "')]/following-sibling::select");
     }
 }

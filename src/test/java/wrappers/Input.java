@@ -17,6 +17,6 @@ public class Input {
     }
 
     private SelenideElement getInputElement() {
-        return $x(String.format("//label[contains(text(),'%s')]", label));
+        return $x("//label[contains(text(), '" + label + "')]/following-sibling::input");
     }
 }

@@ -45,7 +45,7 @@ public class LoginPage extends BaseTest {
         new Input("Work Email").write(account.getEmail());
         new Input("Phone Number").write(account.getPhone());
         new Input("Company name").write(account.getCompany());
-        new Picklist("Country").select("France");
+        new Picklist("Country").select("China");
         new Picklist("How many users do you expect to access TestRail?").select("1");
         new Input("Web Address").write(account.getWeb_address());
         return this;
