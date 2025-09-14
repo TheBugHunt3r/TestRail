@@ -43,7 +43,7 @@ public class LoginStep {
         $x("//span[@class='error-on-top']").shouldBe(visible);
     }
 
-    public void testOfKeepAuth(String email, String password) {
+    public void testKeepAuth(String email, String password) {
         loginPage.open();
         $x("//span[@class='loginpage-checkmark']").click();
         loginPage.LogIn(email, password);
