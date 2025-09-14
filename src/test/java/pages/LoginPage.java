@@ -33,5 +33,4 @@ public class LoginPage extends BasePage {
     public SelenideElement getErrorMessage(String expectedText) {
         return ERROR_MESSAGE.shouldBe(visible).shouldHave(text(expectedText));
     }
-
 }
