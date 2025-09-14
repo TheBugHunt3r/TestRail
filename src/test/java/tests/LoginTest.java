@@ -26,7 +26,7 @@ public class LoginTest extends BaseTest{
 
     @Test
     public void checkKeepingOfAuth() {
-        loginStep.testOfKeepAuth("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginStep.testKeepAuth("stasgolovnev22@gmail.com", "375333631462Stas!");
     }
 
 }
