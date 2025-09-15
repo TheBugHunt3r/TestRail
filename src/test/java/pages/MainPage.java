@@ -51,14 +51,16 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    public MainPage useTopSearch(String projectName) {
-        TOP_SEARCH.shouldBe(visible)
-                .click();
-        TOP_SEARCH.clear();
-        //executeJavaScript("arguments[0].focus();", TOP_SEARCH);
-        TOP_SEARCH.setValue(projectName);
-        //$x("//strong[text()='P3']/../text()[contains(., '" + projectName + "')]").click();
-        //$(byText(projectName)).click();
-        return this;
-    }
+        public MainPage useTopSearch(String projectName) {
+            TOP_SEARCH.shouldBe(visible).click();
+            TOP_SEARCH.clear();
+            TOP_SEARCH.setValue(projectName);
+            TOP_SEARCH.shouldHave(Condition.value(projectName));
+            SelenideElement result = $x("//div[contains(@class, 'dropdown-menu')]//a[contains(text(), '" + projectName + "')]");
+            result.shouldBe(visible).click();
+            $x("//div[contains(@class, 'content-header-title page_title') and contains(text(), '" + projectName + "')]")
+                .shouldBe(visible);
+            return this;
+        }
+
 }
