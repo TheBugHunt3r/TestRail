@@ -31,10 +31,44 @@ public class MainTest extends BaseTest{
 
     @SuppressWarnings("checkstyle:Indentation")
     @Test
-    public void checkTopSearch() throws InterruptedException {
+    public void checkTopSearch() {
         loginPage.open().LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .useTopSearch("Алиса");
-        Thread.sleep(2000);
+    }
+
+    @Test
+    public void checkAddProjectButton() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .switchToProjectPage();
+    }
+
+    @Test
+    public void checkVisibilityOfProject() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .isProjectVisible("Алиса");
+    }
+
+    @Test
+    public void checkProjectInFavorites() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .isProjectVisible("Алиса")
+                .isProjectInFavorites("Алиса");
+    }
+
+    @Test
+    public void checkProjectDeletedFromFavorites() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .isProjectVisible("Алиса")
+                .isProjectInFavorites("Алиса")
+                .isProjectDeletedFromFavorites("Алиса");
     }
 }
