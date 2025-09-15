@@ -4,8 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebElement;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -17,7 +16,9 @@ public class MainPage extends BasePage {
     protected SelenideElement DROP_LINK = $x("//a[@id='navigation-user']");
     protected SelenideElement LOGOUT_BUTTON = $x("//a[@tooltip-text='Log Out']");
     protected SelenideElement SEARCH_PROJECT = $x("//input[@data-testid='searchProjectInput']");
-    protected SelenideElement TOP_SEARCH = $x("(//input[@name='query'])");
+    protected SelenideElement TOP_SEARCH = $x("//input[@name='query']");
+    protected SelenideElement ADD_PROJECT_BUTTON = $x("//a[@data-testid='sidebarProjectsAddButton']");
+    protected SelenideElement ADD_PROJECT_TITLE = $x("//div[@data-testid='testCaseContentHeaderTitle']");
 
     public MainPage isPageOpened() {
         LOGO.shouldBe(visible).shouldHave(
@@ -51,16 +52,43 @@ public class MainPage extends BasePage {
         return this;
     }
 
-        public MainPage useTopSearch(String projectName) {
-            TOP_SEARCH.shouldBe(visible).click();
-            TOP_SEARCH.clear();
-            TOP_SEARCH.setValue(projectName);
-            TOP_SEARCH.shouldHave(Condition.value(projectName));
-            SelenideElement result = $x("//div[contains(@class, 'dropdown-menu')]//a[contains(text(), '" + projectName + "')]");
-            result.shouldBe(visible).click();
-            $x("//div[contains(@class, 'content-header-title page_title') and contains(text(), '" + projectName + "')]")
+    public MainPage useTopSearch(String projectName) {
+        TOP_SEARCH.shouldBe(visible)
+                .click();
+        TOP_SEARCH.clear();
+        TOP_SEARCH.setValue(projectName);
+        TOP_SEARCH.shouldHave(Condition.value(projectName));
+        SelenideElement result = $x("//div[contains(@class, 'dropdown-menu')]//a[contains(text(), '" + projectName + "')]");
+        result.shouldBe(visible)
+                .click();
+        $x("//div[contains(@class, 'content-header-title page_title') and contains(text(), '" + projectName + "')]")
                 .shouldBe(visible);
-            return this;
-        }
+        return this;
+    }
 
+    public ProjectPage switchToProjectPage() {
+        ADD_PROJECT_BUTTON.shouldBe(visible)
+                .click();
+        ADD_PROJECT_TITLE.shouldBe(visible);
+        return new ProjectPage();
+    }
+
+    public MainPage isProjectVisible(String projectName) {
+        $x("//div[@class='summary-title text-ppp']//a[contains(text(),'" + projectName + "')]").shouldBe(visible);
+        return this;
+    }
+
+    public MainPage isProjectInFavorites(String projectName) {
+        $x("//div[@id='project-3']//a[contains(text(),'" + projectName + "')]").shouldBe(visible);
+        $x("//a[@tooltip-text='Mark as project favorite.']").click();
+        $x("//h2[@id='activeHeader']").shouldBe(visible);
+        return this;
+    }
+
+    public MainPage isProjectDeletedFromFavorites(String projectName) {
+        $(byText("this.blur(); App.Projects.unstar(this, 3); return false;")).shouldBe(visible);
+        $(byText("this.blur(); App.Projects.unstar(this, 3); return false;")).click();
+        $x("//h2[@id='activeHeader']").shouldNotBe(visible);
+        return this;
+    }
 }

@@ -7,6 +7,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
 import pages.MainPage;
+import pages.ProjectPage;
 import steps.LoginStep;
 
 public class BaseTest {
@@ -14,6 +15,7 @@ public class BaseTest {
     LoginPage loginPage;
     LoginStep loginStep;
     MainPage mainPage;
+    ProjectPage projectPage;
 
     @BeforeMethod
     public void setUp() {
@@ -30,6 +32,7 @@ public class BaseTest {
         loginStep = new LoginStep();
         loginPage = new LoginPage();
         mainPage = new MainPage();
+        projectPage = new ProjectPage();
     }
 
     @AfterMethod
