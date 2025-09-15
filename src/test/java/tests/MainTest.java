@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.annotations.Test;
-import pages.MainPage;
 
 public class MainTest extends BaseTest{
 
@@ -30,11 +29,12 @@ public class MainTest extends BaseTest{
                 .searchProject("Алиса");
     }
 
+    @SuppressWarnings("checkstyle:Indentation")
     @Test
     public void checkTopSearch() throws InterruptedException {
         loginPage.open().LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
-                .useTopSearch("Станислав");
+                .useTopSearch("Алиса");
         Thread.sleep(2000);
     }
 }
