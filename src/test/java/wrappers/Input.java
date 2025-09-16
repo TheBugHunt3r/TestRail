@@ -2,21 +2,19 @@ package wrappers;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class Input {
 
-    private final String label;
+    private final SelenideElement wrapper;
 
-    public Input(String label) {
-        this.label = label;
+    public Input(SelenideElement wrapper) {
+        this.wrapper = wrapper;
     }
 
-    public void write(String text) {
-        getInputElement().setValue(text);
+    public static void setText(String label, String text) {
+        $x("//label[contains(text(), '"+label+"')]/following-sibling::input[@class='form-control ']").setValue(text);
     }
 
-    private SelenideElement getInputElement() {
-        return $x("//label[contains(text(), '" + label + "')]/following-sibling::input");
-    }
 }
