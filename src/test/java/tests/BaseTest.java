@@ -10,12 +10,15 @@ import pages.MainPage;
 import pages.ProjectPage;
 import steps.LoginStep;
 
+import java.awt.*;
+
 public class BaseTest {
 
     LoginPage loginPage;
     LoginStep loginStep;
     MainPage mainPage;
     ProjectPage projectPage;
+    Checkbox checkbox;
 
     @BeforeMethod
     public void setUp() {
@@ -33,6 +36,7 @@ public class BaseTest {
         loginPage = new LoginPage();
         mainPage = new MainPage();
         projectPage = new ProjectPage();
+        checkbox = new Checkbox();
     }
 
     @AfterMethod

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
 public class MainPage extends BasePage {
 
@@ -19,6 +20,8 @@ public class MainPage extends BasePage {
     protected SelenideElement TOP_SEARCH = $x("//input[@name='query']");
     protected SelenideElement ADD_PROJECT_BUTTON = $x("//a[@data-testid='sidebarProjectsAddButton']");
     protected SelenideElement ADD_PROJECT_TITLE = $x("//div[@data-testid='testCaseContentHeaderTitle']");
+    protected SelenideElement CLEAR_BUTTON = $x("");
+    protected SelenideElement SHOW_MORE_BUTTON = $x("//div[@id='filterNewSearchContent']//a[@id='category_show_more']");
 
     public MainPage isPageOpened() {
         LOGO.shouldBe(visible).shouldHave(
@@ -57,12 +60,8 @@ public class MainPage extends BasePage {
                 .click();
         TOP_SEARCH.clear();
         TOP_SEARCH.setValue(projectName);
-        TOP_SEARCH.shouldHave(Condition.value(projectName));
-        SelenideElement result = $x("//div[contains(@class, 'dropdown-menu')]//a[contains(text(), '" + projectName + "')]");
-        result.shouldBe(visible)
-                .click();
-        $x("//div[contains(@class, 'content-header-title page_title') and contains(text(), '" + projectName + "')]")
-                .shouldBe(visible);
+        $x("//div[@id='newSearchResultsContent']//p[1]").click();
+        $x("//div[@class='content-header-title page_title']").shouldBe(visible);
         return this;
     }
 
@@ -86,9 +85,53 @@ public class MainPage extends BasePage {
     }
 
     public MainPage isProjectDeletedFromFavorites(String projectName) {
-        $(byText("this.blur(); App.Projects.unstar(this, 3); return false;")).shouldBe(visible);
-        $(byText("this.blur(); App.Projects.unstar(this, 3); return false;")).click();
+        $x("//div[@id='project-3']//a[contains(text(),'" + projectName + "')]").shouldBe(visible);
+        $x("//a[@id='project-starred-3']").shouldBe(visible).click();
         $x("//h2[@id='activeHeader']").shouldNotBe(visible);
         return this;
+    }
+    public MainPage isCheckBoxesClickable(String label) {
+        TOP_SEARCH.shouldBe(visible)
+                .click();
+        $x("//label[normalize-space()='"+label+"']").click();
+        $x("//label[normalize-space()='"+label+"']").isSelected();
+        return this;
+    }
+
+    public MainPage checkRemoveOfCheckBoxes(String label) {
+        TOP_SEARCH.shouldBe(visible)
+                .click();
+        $x("//label[normalize-space()='"+label+"']").click();
+        $x("//label[normalize-space()='"+label+"']").shouldNotBe(selected);
+        return this;
+    }
+
+    public MainPage checkClearButton(String label) {
+        TOP_SEARCH.shouldBe(visible)
+                .click();
+        $x("//label[normalize-space()='"+label+"']").click();
+        $x("//label[normalize-space()='"+label+"']").isSelected();
+        $x("//div[@id='filter-category']//span[@class='search-filter-clear-button']" +
+                "[normalize-space()='Clear']").click();
+        $x("//label[normalize-space()='"+label+"']").shouldNotBe(selected);
+        return this;
+    }
+    public MainPage checkOfNavigation(String menuName, String expectedTitle, String expectedUrl) {
+        TOP_SEARCH.shouldBe(visible)
+                .click();
+        $x("//a[normalize-space()='"+ menuName +"']").click();
+        webdriver().shouldHave(urlContaining(expectedUrl));
+        return this;
+    }
+    public MainPage useShowMoreButton() {
+        TOP_SEARCH.shouldBe(visible)
+                .click();
+        SHOW_MORE_BUTTON.click();
+        $x("//div[@id='searchFilterOption_category_4']").shouldBe(visible);
+        return this;
+    }
+    public ProjectPage moveToProjectPage() {
+        ADD_PROJECT_BUTTON.click();
+        return new ProjectPage();
     }
 }
