@@ -37,7 +37,6 @@ public class MainTest extends BaseTest{
                 .searchProject("Алиса");
     }
 
-    @SuppressWarnings("checkstyle:Indentation")
     @Test
     public void checkTopSearch() {
         loginPage.open().LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
@@ -81,7 +80,7 @@ public class MainTest extends BaseTest{
     }
 
     @Test
-    public void checkOfCheckBoxes() {
+    public void checkCheckBoxes() {
         loginPage.open()
                 .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
@@ -91,7 +90,7 @@ public class MainTest extends BaseTest{
     }
 
     @Test
-    public void checkOfRemovingCheckBoxes() {
+    public void checkRemovingCheckBoxes() {
         loginPage.open()
                 .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
@@ -108,7 +107,7 @@ public class MainTest extends BaseTest{
     }
 
     @Test(dataProvider = "navigationData", dataProviderClass = NavigationData.class)
-    public void checkOfNavigation(String menuName, String expectedTitle, String expectedUrl) {
+    public void checkNavigation(String menuName, String expectedTitle, String expectedUrl) {
         loginPage.open()
                 .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
@@ -123,7 +122,7 @@ public class MainTest extends BaseTest{
                 .useShowMoreButton();
     }
     @Test
-    public void checkOfSwitchToProjectPage() {
+    public void checkSwitchToProjectPage() {
         loginPage.open()
                 .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
