@@ -16,4 +16,15 @@ public class NavigationData {
                 {"Cross-Project Reports", "Cross-Project Reports", "https://saucedemo111234555.testrail.io/index.php?/new_search/results&category[]=8"}
         };
     }
+
+    @DataProvider(name = "navigationProjectPage")
+    public Object[][] navigationProjectPage() {
+        return new Object[][]{
+                {"PROJECT", "PROJECT", "//a[@id='projects-tabs-project']"},
+                {"ACCESS", "ACCESS", "//a[@id='projects-tabs-access']"},
+                {"DEFECTS", "DEFECTS", "//a[@id='projects-tabs-defects']"},
+                {"REFERENCES", "REFERENCES", "//a[@id='projects-tabs-references']"},
+                {"USER VARIABLES", "USER VARIABLES", "//a[@id='users-fields-fields']"},
+        };
+    }
 }
