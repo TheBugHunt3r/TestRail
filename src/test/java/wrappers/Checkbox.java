@@ -8,8 +8,7 @@ public class Checkbox {
     public Checkbox(String label) {
         this.label = label;
     }
-    public void select() {
-        $x("//label[normalize-space()='"+label+"']").click();
+    public static void check(String label) {
+        $x("//strong[normalize-space()='"+label+"']").click();
     }
-
 }
