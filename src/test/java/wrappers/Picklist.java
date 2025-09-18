@@ -12,11 +12,11 @@ public class Picklist {
         this.label = label;
     }
 
-    public void select(String option) {
-        getPicklistElement().selectOption(option);
+    public static void select(String label, String option) {
+        getPicklistElement(label).selectOption(option);
     }
 
-    private SelenideElement getPicklistElement() {
-        return $x("//label[contains(text(), '" + label + "')]/following-sibling::select");
+    private static SelenideElement getPicklistElement(String label) {
+        return $x("//div[@class='form-group']//label[contains(text(),'" + label + "')]/following-sibling::*[1]");
     }
 }

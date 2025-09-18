@@ -1,7 +1,14 @@
 package tests;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import pages.MainPage;
+
+import java.awt.*;
+import dto.NavigationData;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
 public class MainTest extends BaseTest{
 
@@ -31,10 +38,95 @@ public class MainTest extends BaseTest{
     }
 
     @Test
-    public void checkTopSearch() throws InterruptedException {
+    public void checkTopSearch() {
         loginPage.open().LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
-                .useTopSearch("Станислав");
-        Thread.sleep(2000);
+                .useTopSearch("Алиса");
+    }
+
+    @Test
+    public void checkAddProjectButton() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .switchToProjectPage();
+    }
+
+    @Test
+    public void checkVisibilityOfProject() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .isProjectVisible("Алиса");
+    }
+
+    @Test
+    public void checkProjectInFavorites() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .isProjectVisible("Алиса")
+                .isProjectInFavorites("Алиса");
+    }
+
+    @Test
+    public void checkProjectDeletedFromFavorites() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .isProjectVisible("Алиса")
+                .isProjectInFavorites("Алиса")
+                .isProjectDeletedFromFavorites("Алиса");
+    }
+
+    @Test
+    public void checkCheckBoxes() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .isCheckBoxesClickable("Projects")
+                .isCheckBoxesClickable("Test Cases")
+                .isCheckBoxesClickable("Test Runs");
+    }
+
+    @Test
+    public void checkRemovingCheckBoxes() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .isCheckBoxesClickable("Projects")
+                .checkRemoveOfCheckBoxes("Projects");
+    }
+
+    @Test
+    public void checkClearButton() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .checkClearButton("Projects");
+    }
+
+    @Test(dataProvider = "navigationData", dataProviderClass = NavigationData.class)
+    public void checkNavigation(String menuName, String expectedTitle, String expectedUrl) {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .checkOfNavigation(menuName, expectedTitle, expectedUrl);
+    }
+
+    @Test
+    public void checkShowMoreButton() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .useShowMoreButton();
+    }
+    @Test
+    public void checkSwitchToProjectPage() {
+        loginPage.open()
+                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        mainPage.isPageOpened()
+                .moveToProjectPage();
+        projectPage.isPageOpened();
     }
 }
