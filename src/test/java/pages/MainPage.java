@@ -3,25 +3,14 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebElement;
-
+import dto.Elements;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
+import static dto.Elements.*;
 
 public class MainPage extends BasePage {
-
-    protected SelenideElement LOGO = $x("//div[@data-testid='testCaseContentHeaderTitle']");
-    protected SelenideElement FAB = $x("//img[@class='_pendo-image _pendo-badge-image _pendo-resource-center-badge-image']");
-    protected SelenideElement FAB_LOGO = $x("//h2[@class='bb-text _pendo-resource-center-home-title-text']");
-    protected SelenideElement DROP_LINK = $x("//a[@id='navigation-user']");
-    protected SelenideElement LOGOUT_BUTTON = $x("//a[@tooltip-text='Log Out']");
-    protected SelenideElement SEARCH_PROJECT = $x("//input[@data-testid='searchProjectInput']");
-    protected SelenideElement TOP_SEARCH = $x("//input[@name='query']");
-    protected SelenideElement ADD_PROJECT_BUTTON = $x("//a[@data-testid='sidebarProjectsAddButton']");
-    protected SelenideElement ADD_PROJECT_TITLE = $x("//div[@data-testid='testCaseContentHeaderTitle']");
-    protected SelenideElement CLEAR_BUTTON = $x("");
-    protected SelenideElement SHOW_MORE_BUTTON = $x("//div[@id='filterNewSearchContent']//a[@id='category_show_more']");
 
     public MainPage isPageOpened() {
         LOGO.shouldBe(visible).shouldHave(
@@ -60,8 +49,8 @@ public class MainPage extends BasePage {
                 .click();
         TOP_SEARCH.clear();
         TOP_SEARCH.setValue(projectName);
-        $x("//div[@id='newSearchResultsContent']//p[1]").click();
-        $x("//div[@class='content-header-title page_title']").shouldBe(visible);
+        SEARCH_RESULT.click();
+        PAGE_TITLE.shouldBe(visible);
         return this;
     }
 
@@ -79,15 +68,15 @@ public class MainPage extends BasePage {
 
     public MainPage isProjectInFavorites(String projectName) {
         $x("//div[@id='project-3']//a[contains(text(),'" + projectName + "')]").shouldBe(visible);
-        $x("//a[@tooltip-text='Mark as project favorite.']").click();
-        $x("//h2[@id='activeHeader']").shouldBe(visible);
+        ADD_TO_FAVORITES.click();
+        ACTIVE_PROJECTS.shouldBe(visible);
         return this;
     }
 
     public MainPage isProjectDeletedFromFavorites(String projectName) {
         $x("//div[@id='project-3']//a[contains(text(),'" + projectName + "')]").shouldBe(visible);
-        $x("//a[@id='project-starred-3']").shouldBe(visible).click();
-        $x("//h2[@id='activeHeader']").shouldNotBe(visible);
+        DELETE_FROM_FAVORITE.shouldBe(visible).click();
+        ACTIVE_PROJECTS.shouldNotBe(visible);
         return this;
     }
     public MainPage isCheckBoxesClickable(String label) {
@@ -111,8 +100,7 @@ public class MainPage extends BasePage {
                 .click();
         $x("//label[normalize-space()='"+label+"']").click();
         $x("//label[normalize-space()='"+label+"']").isSelected();
-        $x("//div[@id='filter-category']//span[@class='search-filter-clear-button']" +
-                "[normalize-space()='Clear']").click();
+        CLEAR_BUTTON.click();
         $x("//label[normalize-space()='"+label+"']").shouldNotBe(selected);
         return this;
     }
@@ -127,7 +115,7 @@ public class MainPage extends BasePage {
         TOP_SEARCH.shouldBe(visible)
                 .click();
         SHOW_MORE_BUTTON.click();
-        $x("//div[@id='searchFilterOption_category_4']").shouldBe(visible);
+       TEST_CHECKBOX.shouldBe(visible);
         return this;
     }
     public ProjectPage moveToProjectPage() {
