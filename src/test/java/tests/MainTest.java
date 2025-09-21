@@ -1,45 +1,41 @@
 package tests;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import java.awt.*;
 import dto.NavigationData;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.webdriver;
-import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
 public class MainTest extends BaseTest{
 
     @Test
     public void checkIsPageOpened() {
-        loginPage.open().LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginPage.open().logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened();
     }
 
     @Test
     public void checkFab() {
-        loginPage.open().LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginPage.open().logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isFabOpened();
     }
 
     @Test
     public void checkLogOut() {
-        loginPage.open().LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginPage.open().logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.logOut();
     }
 
     @Test
     public void checkSearchProject() {
-        loginPage.open().LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginPage.open().logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .searchProject("Алиса");
     }
 
     @Test
     public void checkTopSearch() {
-        loginPage.open().LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginPage.open().logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .useTopSearch("Алиса");
     }
@@ -47,7 +43,7 @@ public class MainTest extends BaseTest{
     @Test
     public void checkAddProjectButton() {
         loginPage.open()
-                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .switchToProjectPage();
     }
@@ -55,7 +51,7 @@ public class MainTest extends BaseTest{
     @Test
     public void checkVisibilityOfProject() {
         loginPage.open()
-                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .isProjectVisible("Алиса");
     }
@@ -63,7 +59,7 @@ public class MainTest extends BaseTest{
     @Test
     public void checkProjectInFavorites() {
         loginPage.open()
-                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .isProjectVisible("Алиса")
                 .isProjectInFavorites("Алиса");
@@ -72,7 +68,7 @@ public class MainTest extends BaseTest{
     @Test
     public void checkProjectDeletedFromFavorites() {
         loginPage.open()
-                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .isProjectVisible("Алиса")
                 .isProjectInFavorites("Алиса")
@@ -82,7 +78,7 @@ public class MainTest extends BaseTest{
     @Test
     public void checkCheckBoxes() {
         loginPage.open()
-                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .isCheckBoxesClickable("Projects")
                 .isCheckBoxesClickable("Test Cases")
@@ -92,7 +88,7 @@ public class MainTest extends BaseTest{
     @Test
     public void checkRemovingCheckBoxes() {
         loginPage.open()
-                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .isCheckBoxesClickable("Projects")
                 .checkRemoveOfCheckBoxes("Projects");
@@ -101,7 +97,7 @@ public class MainTest extends BaseTest{
     @Test
     public void checkClearButton() {
         loginPage.open()
-                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .checkClearButton("Projects");
     }
@@ -109,7 +105,7 @@ public class MainTest extends BaseTest{
     @Test(dataProvider = "navigationData", dataProviderClass = NavigationData.class)
     public void checkNavigation(String menuName, String expectedTitle, String expectedUrl) {
         loginPage.open()
-                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .checkOfNavigation(menuName, expectedTitle, expectedUrl);
     }
@@ -117,14 +113,14 @@ public class MainTest extends BaseTest{
     @Test
     public void checkShowMoreButton() {
         loginPage.open()
-                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .useShowMoreButton();
     }
     @Test
     public void checkSwitchToProjectPage() {
         loginPage.open()
-                .LogIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
         mainPage.isPageOpened()
                 .moveToProjectPage();
         projectPage.isPageOpened();
