@@ -31,4 +31,11 @@ public class Elements {
     public static SelenideElement DELETE_PROJECT_BUTTON = $x("//span[@class='dialog-confirm']/*");
     public static SelenideElement CONFIRM_DELETE_BUTTON = $x("//a[@data-testid='caseFieldsTabDeleteDialogButtonOk']");
     public static SelenideElement DELETE_LOGO = $x("//div[@data-testid='messageSuccessDivBox']");
+    public static SelenideElement TO_DO_TITLE = $x("//div[@data-testid='testCaseContentHeaderTitle']");
+    public static SelenideElement TEST_RUN = $x("//a[@id='run-link-id-13']");
+    public static SelenideElement TESTS_RESULTS = $x("//a[@data-testid='navigateToRunStatusButton']");
+    public static SelenideElement TEST_CASES_TAB = $x("//a[@id='navigation-todos-overview-cases']");
+    public static SelenideElement TEST_CASE_ID = $x("//tr[@id='case-1']");
+    public static SelenideElement TEST_RUN_ID = $x("//tr[@class='odd run ']");
+
 }

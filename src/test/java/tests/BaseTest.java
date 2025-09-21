@@ -5,9 +5,7 @@ import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.LoginPage;
-import pages.MainPage;
-import pages.ProjectPage;
+import pages.*;
 import steps.LoginStep;
 
 import java.awt.*;
@@ -19,6 +17,8 @@ public class BaseTest {
     MainPage mainPage;
     ProjectPage projectPage;
     Checkbox checkbox;
+    ToDoPage toDoPage;
+    TestRunPage testRunPage;
 
     @BeforeMethod
     public void setUp() {
@@ -37,6 +37,8 @@ public class BaseTest {
         mainPage = new MainPage();
         projectPage = new ProjectPage();
         checkbox = new Checkbox();
+        toDoPage = new ToDoPage();
+        testRunPage = new TestRunPage();
     }
 
     @AfterMethod

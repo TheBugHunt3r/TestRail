@@ -23,7 +23,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage LogIn(String email, String password) {
+    public LoginPage logIn(String email, String password) {
         EMAIL_FIELD.setValue(email);
         PASSWORD_FIELD.setValue(password);
         LOGIN_BUTTON.click();
