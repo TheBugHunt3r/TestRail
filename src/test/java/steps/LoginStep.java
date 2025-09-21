@@ -19,32 +19,32 @@ public class LoginStep {
 
     public void testWithPositiveCred(String email, String password) {
         loginPage.open()
-                .LogIn(email, password);
+                .logIn(email, password);
         mainPage.isPageOpened();
     }
 
     public void testWithEmptyEmail(String email, String password) {
         loginPage.open()
-                .LogIn(email, password);
+                .logIn(email, password);
         loginPage.getErrorMessage("Email/Login is required.");
     }
 
     public void testWithEmptyPassword(String email, String password) {
         loginPage.open()
-                .LogIn(email, password);
+                .logIn(email, password);
         loginPage.getErrorMessage("Password is required.");
     }
 
     public void testWithTestCreds(String email, String password) {
         loginPage.open()
-                .LogIn(email, password);
+                .logIn(email, password);
         $x("//span[@class='error-on-top']").shouldBe(visible);
     }
 
     public void testKeepAuth(String email, String password) {
         loginPage.open();
         $x("//span[@class='loginpage-checkmark']").click();
-        loginPage.LogIn(email, password);
+        loginPage.logIn(email, password);
         loginPage.open();
         mainPage.isPageOpened();
     }
