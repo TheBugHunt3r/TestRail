@@ -1,10 +1,18 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
+import org.testng.Assert;
+import wrappers.Filters;
+
 import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.files.DownloadActions.click;
 import static dto.Elements.*;
+import static org.testng.Assert.assertEquals;
+import static wrappers.Filters.select;
+import static wrappers.IntegrationField.setOption;
 
 public class ToDoPage extends BasePage {
 
@@ -33,6 +41,61 @@ public class ToDoPage extends BasePage {
 
     public ToDoPage isTabSelected() {
         TEST_CASE_ID.shouldBe(visible);
+        return this;
+    }
+
+    public ToDoPage chooseTestCase(String numTestCase) {
+        $x("//tr[@class='odd case ']//following-sibling::td//a[@id='case-link-id-" + numTestCase + "']").click();
+        return this;
+    }
+
+    public ToDoPage chooseTestRun(String testRunID) {
+        $x("//a[@id='run-link-id-" + testRunID + "']")
+                .shouldBe(visible).click();
+        return this;
+    }
+
+    public ToDoPage isTestRunOpened() {
+        TEST_RUN_LOGO.shouldBe(visible);
+        return this;
+    }
+
+    public ToDoPage isTestCaseOpened() {
+        NEXT_BUTTON.shouldBe(visible);
+        return this;
+    }
+
+
+    public ToDoPage checkGroupTestCase(String menuName, String expectedTitle) {
+        select();
+        Filters.setOption(menuName);
+        $x("//span[contains(text(), '" + menuName + "')]").shouldBe(visible);
+        REMOVE_GROUP_BUTTON.click();
+        return this;
+    }
+
+    public ToDoPage checkGroupTestRun(String menuName, String expectedTitle) {
+        select();
+        Filters.setOption(menuName);
+        $x("//span[contains(text(), '" + menuName + "')]").shouldBe(visible);
+        REMOVE_GROUP_BUTTON.click();
+        return this;
+    }
+
+    public ToDoPage checkFilterTestRun(String filterName, String milestoneName) {
+        FILTER_BUTTON.click();
+        $x("//span[normalize-space()='" + filterName + "']").click();
+        FILTER_INPUT.setValue(milestoneName);
+        APPLY_FILTER_BUTTON.click();
+        $x("//span[@id='filterByName'][contains(text(), '" + filterName + "')]").shouldBe(visible);
+        return this;
+    }
+
+    public ToDoPage checkFilterTestCase(String filterName) {
+        FILTER_BUTTON.click();
+        $x("//span[normalize-space()='" + filterName + "']").click();
+        APPLY_FILTER_BUTTON.click();
+        $x("//span[@id='filterByName'][contains(text(), '" + filterName + "')]").shouldBe(visible);
         return this;
     }
 }
