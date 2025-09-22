@@ -17,14 +17,22 @@ public class NavigationData {
         };
     }
 
-    @DataProvider(name = "navigationProjectPage")
-    public Object[][] navigationProjectPage() {
+    @DataProvider(name = "groupTestCase")
+    public Object[][] filterTestCase() {
         return new Object[][]{
-                {"PROJECT", "PROJECT", "//a[@id='projects-tabs-project']"},
-                {"ACCESS", "ACCESS", "//a[@id='projects-tabs-access']"},
-                {"DEFECTS", "DEFECTS", "//a[@id='projects-tabs-defects']"},
-                {"REFERENCES", "REFERENCES", "//a[@id='projects-tabs-references']"},
-                {"USER VARIABLES", "USER VARIABLES", "//a[@id='users-fields-fields']"},
+                {"Status", "Status", "Design"},
+                {"Day", "Day", "Wednesday, September 10, 2025"},
+                {"Month", "Month", "September 2025"}
+        };
+    }
+
+    @DataProvider(name = "groupTestRuns")
+    public Object[][] groupTestRuns() {
+        return new Object[][]{
+                {"Milestone", "Milestone", "Design"},
+//                {"Test Plan", "Test Plan", "Wednesday, September 10, 2025"}, Добавить уникальность
+                {"Day", "Day", "September 2025"},
+                {"Month", "Month", "September 2025"}
         };
     }
 }

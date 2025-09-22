@@ -37,5 +37,12 @@ public class Elements {
     public static SelenideElement TEST_CASES_TAB = $x("//a[@id='navigation-todos-overview-cases']");
     public static SelenideElement TEST_CASE_ID = $x("//tr[@id='case-1']");
     public static SelenideElement TEST_RUN_ID = $x("//tr[@class='odd run ']");
+    public static SelenideElement NEXT_BUTTON =  $x("//div[@class='icon-direction-next']");
+    public static SelenideElement REMOVE_GROUP_BUTTON = $x("//div[@class='icon-orderreset']");
+    public static SelenideElement TEST_RUN_LOGO = $x("//div[@class='content-header-id']");
+    public static SelenideElement FILTER_INPUT = $x("//div[@id='milestoneSelection_chosen']//input[@type='text']");
+    public static SelenideElement FILTER_BUTTON = $x("//span[@id='filterByEmpty']");
+    public static SelenideElement APPLY_FILTER_BUTTON = $x("//a[@class='button button-left" +
+            " button-positive button-dark button-ok']");
 
 }
