@@ -6,9 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
-import steps.LoginStep;
-import steps.MainStep;
-import steps.ProjectStep;
+import steps.*;
 
 import java.awt.*;
 
@@ -24,6 +22,8 @@ public class BaseTest {
     public TestCasesPage testCasesPage;
     public MainStep mainStep;
     public ProjectStep projectStep;
+    public TestCaseStep testCaseStep;
+    public ToDoStep toDoStep;
 
     @BeforeMethod
     public void setUp() {
@@ -47,6 +47,8 @@ public class BaseTest {
         testCasesPage = new TestCasesPage();
         mainStep = new MainStep();
         projectStep = new ProjectStep();
+        testCaseStep = new TestCaseStep();
+        toDoStep = new ToDoStep();
     }
 
     @AfterMethod
