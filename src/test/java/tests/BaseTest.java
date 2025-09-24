@@ -19,12 +19,13 @@ public class BaseTest {
     Checkbox checkbox;
     ToDoPage toDoPage;
     TestRunPage testRunPage;
+    TestCasesPage testCasesPage;
 
     @BeforeMethod
     public void setUp() {
         Configuration.browser = "chrome";
         Configuration.baseUrl = "https://www.testrail.com";
-        Configuration.timeout = 10000;
+        Configuration.timeout = 15000;
         Configuration.clickViaJs = true;
         //Configuration.headless = true;
         ChromeOptions options = new ChromeOptions();
@@ -39,6 +40,7 @@ public class BaseTest {
         checkbox = new Checkbox();
         toDoPage = new ToDoPage();
         testRunPage = new TestRunPage();
+        testCasesPage = new TestCasesPage();
     }
 
     @AfterMethod

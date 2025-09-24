@@ -35,4 +35,26 @@ public class NavigationData {
                 {"Month", "Month", "September 2025"}
         };
     }
+
+    @DataProvider(name = "sortTestCases")
+    public Object[][] sortTestCases() {
+        return new Object[][]{
+                {"Assigned To", "Assigned To", "Assigned To"},
+                {"Automation Type", "Automation Type", "Automation Type"},
+                {"Created By", "Created By", "Created By"},
+                {"Created On", "Created On", "Created On"},
+                {"Deletion Status", "Deletion Status", "Deletion Status"},
+                {"Estimate", "Estimate", "Estimate"},
+                {"Forecast", "Forecast", "Forecast"},
+                {"ID", "ID", "ID"},
+                {"Labels", "Labels", "Labels"},
+                {"Priority", "Priority", "Priority"},
+                {"References", "References", "References"},
+                {"Template", "Template", "Template"},
+                {"Title", "Title", "Title"},
+                {"Type", "Type", "Type"},
+                {"Updated By", "Updated By", "Updated By"},
+                {"Updated On", "Updated On", "Updated On"}
+        };
+    }
 }

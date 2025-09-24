@@ -44,5 +44,7 @@ public class Elements {
     public static SelenideElement FILTER_BUTTON = $x("//span[@id='filterByEmpty']");
     public static SelenideElement APPLY_FILTER_BUTTON = $x("//a[@class='button button-left" +
             " button-positive button-dark button-ok']");
+    public static SelenideElement TEST_CASES_TITLE = $x("//div[@data-testid='testCaseContentHeaderTitle']");
+    public static SelenideElement SORT_TEST_CASES = $x("//span[@id='orderByEmpty']");
 
 }
