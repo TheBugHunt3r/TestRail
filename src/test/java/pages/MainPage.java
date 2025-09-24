@@ -1,14 +1,9 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.WebElement;
-import dto.Elements;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
-import static dto.Elements.*;
+import static dto.ui.Elements.*;
 
 public class MainPage extends BasePage {
 

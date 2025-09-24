@@ -1,4 +1,4 @@
-package tests;
+package tests.base;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -7,19 +7,23 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
 import steps.LoginStep;
+import steps.MainStep;
+import steps.ProjectStep;
 
 import java.awt.*;
 
 public class BaseTest {
 
-    LoginPage loginPage;
-    LoginStep loginStep;
-    MainPage mainPage;
-    ProjectPage projectPage;
-    Checkbox checkbox;
-    ToDoPage toDoPage;
-    TestRunPage testRunPage;
-    TestCasesPage testCasesPage;
+    public LoginPage loginPage;
+    public LoginStep loginStep;
+    public MainPage mainPage;
+    public ProjectPage projectPage;
+    public Checkbox checkbox;
+    public ToDoPage toDoPage;
+    public TestRunPage testRunPage;
+    public TestCasesPage testCasesPage;
+    public MainStep mainStep;
+    public ProjectStep projectStep;
 
     @BeforeMethod
     public void setUp() {
@@ -41,6 +45,8 @@ public class BaseTest {
         toDoPage = new ToDoPage();
         testRunPage = new TestRunPage();
         testCasesPage = new TestCasesPage();
+        mainStep = new MainStep();
+        projectStep = new ProjectStep();
     }
 
     @AfterMethod

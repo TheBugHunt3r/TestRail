@@ -1,8 +1,6 @@
-package dto;
+package dto.ui;
 
 import com.codeborne.selenide.SelenideElement;
-
-import javax.swing.plaf.PanelUI;
 
 import static com.codeborne.selenide.Selenide.$x;
 
