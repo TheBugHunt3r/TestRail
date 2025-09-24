@@ -5,7 +5,7 @@ import wrappers.Filters;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
-import static dto.Elements.*;
+import static dto.ui.Elements.*;
 
 public class TestCasesPage extends BasePage{
 

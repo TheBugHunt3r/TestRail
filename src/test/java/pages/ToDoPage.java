@@ -1,18 +1,12 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
-import org.testng.Assert;
 import wrappers.Filters;
 
-import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
-import static dto.Elements.*;
+import static dto.ui.Elements.*;
 import static org.testng.Assert.assertEquals;
 import static wrappers.Filters.select;
-import static wrappers.IntegrationField.setOption;
 
 public class ToDoPage extends BasePage {
 

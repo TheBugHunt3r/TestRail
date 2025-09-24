@@ -1,14 +1,14 @@
 package tests;
 
-import dto.NavigationData;
+import dto.ui.NavigationData;
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
 
 public class ToDoTest extends BaseTest {
 
     @Test
     public void checkPageIsOpened() {
-        loginPage.open()
-                .logIn("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
         toDoPage.openPage()
                 .isPageOpened();
     }

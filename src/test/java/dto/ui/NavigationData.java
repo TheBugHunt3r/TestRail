@@ -1,4 +1,4 @@
-package dto;
+package dto.ui;
 
 import org.testng.annotations.DataProvider;
 

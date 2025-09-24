@@ -1,16 +1,12 @@
 package pages;
 
-import com.codeborne.selenide.SelenideElement;
-import dto.Elements;
-import dto.Project;
-import dto.ProjectFactory;
+import dto.ui.Project;
 import wrappers.*;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static dto.Elements.*;
+import static dto.ui.Elements.*;
 import static wrappers.Checkbox.check;
 import static wrappers.Input.*;
 import static wrappers.IntegrationField.setOption;
