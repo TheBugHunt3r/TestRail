@@ -17,34 +17,34 @@ public class LoginStep {
        mainPage = new MainPage();
     }
 
-    public void testWithPositiveCred(String email, String password) {
+    public void testWithPositiveCred(String user, String password) {
         loginPage.open()
-                .logIn(email, password);
+                .logIn(user, password);
         mainPage.isPageOpened();
     }
 
-    public void testWithEmptyEmail(String email, String password) {
+    public void testWithEmptyEmail(String user, String password) {
         loginPage.open()
-                .logIn(email, password);
+                .logIn(user, password);
         loginPage.getErrorMessage("Email/Login is required.");
     }
 
-    public void testWithEmptyPassword(String email, String password) {
+    public void testWithEmptyPassword(String user, String password) {
         loginPage.open()
-                .logIn(email, password);
+                .logIn(user, password);
         loginPage.getErrorMessage("Password is required.");
     }
 
-    public void testWithTestCreds(String email, String password) {
+    public void testWithTestCreds(String user, String password) {
         loginPage.open()
-                .logIn(email, password);
+                .logIn(user, password);
         $x("//span[@class='error-on-top']").shouldBe(visible);
     }
 
-    public void testKeepAuth(String email, String password) {
+    public void testKeepAuth(String user, String password) {
         loginPage.open();
         $x("//span[@class='loginpage-checkmark']").click();
-        loginPage.logIn(email, password);
+        loginPage.logIn(user, password);
         loginPage.open();
         mainPage.isPageOpened();
     }

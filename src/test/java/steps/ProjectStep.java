@@ -1,8 +1,7 @@
 package steps;
 
-import dto.ui.Project;
-import dto.ui.ProjectFactory;
-import pages.LoginPage;
+import dto.Project;
+import dto.ProjectFactory;
 import pages.MainPage;
 import pages.ProjectPage;
 

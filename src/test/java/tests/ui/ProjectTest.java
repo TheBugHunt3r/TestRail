@@ -1,7 +1,5 @@
-package tests;
+package tests.ui;
 
-import dto.ui.Project;
-import dto.ui.ProjectFactory;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 

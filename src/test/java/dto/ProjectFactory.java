@@ -1,4 +1,4 @@
-package dto.ui;
+package dto;
 
 import com.github.javafaker.Faker;
 

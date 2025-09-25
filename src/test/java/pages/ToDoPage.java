@@ -1,10 +1,11 @@
 package pages;
 
+import pages.base.BasePage;
 import wrappers.Filters;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-import static dto.ui.Elements.*;
+import static elements.ToDoPageElements.*;
 import static org.testng.Assert.assertEquals;
 import static wrappers.Filters.select;
 

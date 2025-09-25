@@ -1,8 +1,8 @@
-package tests;
+package tests.ui;
 
 import org.testng.annotations.Test;
 
-import dto.ui.NavigationData;
+import dto.NavigationData;
 import tests.base.BaseTest;
 
 import static com.codeborne.selenide.Selenide.$;
