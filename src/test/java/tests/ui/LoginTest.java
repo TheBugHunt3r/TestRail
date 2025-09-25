@@ -1,4 +1,4 @@
-package tests;
+package tests.ui;
 
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
@@ -7,17 +7,17 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void checkLoginWithPositiveCred() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginStep.testWithPositiveCred(user, password);
     }
 
     @Test
     public void checkLoginWithEmptyEmail() {
-        loginStep.testWithEmptyEmail("", "375333631462Stas!");
+        loginStep.testWithEmptyEmail("", password);
     }
 
     @Test
     public void checkLoginWithEmptyPassword() {
-        loginStep.testWithEmptyPassword("stasgolovnev22@gmail.com", "");
+        loginStep.testWithEmptyPassword(user, "");
     }
 
     @Test
@@ -27,7 +27,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void checkKeepingOfAuth() {
-        loginStep.testKeepAuth("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginStep.testKeepAuth(user, password);
     }
 
 }

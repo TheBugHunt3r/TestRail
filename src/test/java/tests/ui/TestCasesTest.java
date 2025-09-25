@@ -1,8 +1,7 @@
-package tests;
+package tests.ui;
 
-import dto.ui.NavigationData;
+import dto.NavigationData;
 import org.testng.annotations.Test;
-import steps.TestCaseStep;
 import tests.base.BaseTest;
 
 public class TestCasesTest extends BaseTest {

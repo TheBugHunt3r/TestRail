@@ -2,17 +2,17 @@ package pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import pages.base.BasePage;
+import elements.LoginPageElements;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static elements.LoginPageElements.*;
 
 public class LoginPage extends BasePage {
 
-    private SelenideElement EMAIL_FIELD = $x("//*[@id='name']");
-    private SelenideElement PASSWORD_FIELD = $x("//*[@id='password']");
-    private SelenideElement LOGIN_BUTTON = $x("//*[@id='button_primary']");
-    private SelenideElement ERROR_MESSAGE = $x("//div[@class='loginpage-message-image loginpage-message ']");
+
 
     public LoginPage() {
         super();
@@ -23,8 +23,8 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage logIn(String email, String password) {
-        EMAIL_FIELD.setValue(email);
+    public LoginPage logIn(String user, String password) {
+        EMAIL_FIELD.setValue(user);
         PASSWORD_FIELD.setValue(password);
         LOGIN_BUTTON.click();
         return this;

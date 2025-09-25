@@ -1,4 +1,6 @@
 package pages;
 
-public class TestRunPage extends BasePage{
+import pages.base.BasePage;
+
+public class TestRunPage extends BasePage {
 }

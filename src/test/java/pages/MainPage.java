@@ -1,9 +1,12 @@
 package pages;
 
+import pages.base.BasePage;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
-import static dto.ui.Elements.*;
+
+import static elements.MainPageElements.*;
 
 public class MainPage extends BasePage {
 

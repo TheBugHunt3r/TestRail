@@ -5,25 +5,33 @@ import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import pages.*;
+import pages.LoginPage;
 import steps.*;
+import utils.PropertyReader;
+import utils.TestListener;
 
 import java.awt.*;
 
+@Listeners(TestListener.class)
 public class BaseTest {
 
-    public LoginPage loginPage;
-    public LoginStep loginStep;
-    public MainPage mainPage;
-    public ProjectPage projectPage;
-    public Checkbox checkbox;
-    public ToDoPage toDoPage;
-    public TestRunPage testRunPage;
-    public TestCasesPage testCasesPage;
-    public MainStep mainStep;
-    public ProjectStep projectStep;
-    public TestCaseStep testCaseStep;
-    public ToDoStep toDoStep;
+    protected LoginPage loginPage;
+    protected LoginStep loginStep;
+    protected MainPage mainPage;
+    protected ProjectPage projectPage;
+    protected Checkbox checkbox;
+    protected ToDoPage toDoPage;
+    protected TestRunPage testRunPage;
+    protected TestCasesPage testCasesPage;
+    protected MainStep mainStep;
+    protected ProjectStep projectStep;
+    protected TestCaseStep testCaseStep;
+    protected ToDoStep toDoStep;
+
+    protected String user = System.getProperty("user", PropertyReader.getProperty("user"));
+    protected String password = System.getProperty("password", PropertyReader.getProperty("password"));
 
     @BeforeMethod
     public void setUp() {

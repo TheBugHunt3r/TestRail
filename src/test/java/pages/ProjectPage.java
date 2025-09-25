@@ -1,18 +1,21 @@
 package pages;
 
-import dto.ui.Project;
+import dto.Project;
+import pages.base.BasePage;
 import wrappers.*;
+
+import static elements.MainPageElements.LOGO;
+import static elements.ProjectPageElements.*;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-import static dto.ui.Elements.*;
 import static wrappers.Checkbox.check;
 import static wrappers.Input.*;
 import static wrappers.IntegrationField.setOption;
 import static wrappers.RadioButton.select;
 
-public class ProjectPage extends BasePage{
+public class ProjectPage extends BasePage {
 
     public final String PROJECT_URL = "https://saucedemo111234555.testrail.io/index.php?/admin/projects/add/1";
 

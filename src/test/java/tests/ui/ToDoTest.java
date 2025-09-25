@@ -1,6 +1,6 @@
-package tests;
+package tests.ui;
 
-import dto.ui.NavigationData;
+import dto.NavigationData;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
