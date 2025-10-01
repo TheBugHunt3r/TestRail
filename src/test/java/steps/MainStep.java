@@ -18,80 +18,80 @@ public class MainStep {
         loginStep = new LoginStep();
     }
 
-    public void useSearchProject() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void useSearchProject(String user, String password, String projectName) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
-                .searchProject("Алиса");
+                .searchProject(projectName);
     }
 
-    public void useTopSearch() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void useTopSearch(String user, String password, String projectName) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
-                .useTopSearch("Алиса");
+                .useTopSearch(projectName);
     }
 
-    public void clickAddProjectButton() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void clickAddProjectButton(String user, String password, String projectName) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
                 .switchToProjectPage();
     }
 
-    public void isProjectVisible() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void isProjectVisible(String user, String password, String projectName) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
-                .isProjectVisible("Алиса");
+                .isProjectVisible(projectName);
     }
 
-    public void isProjectInFavorites() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void isProjectInFavorites(String user, String password, String projectName) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
-                .isProjectVisible("Алиса")
-                .isProjectInFavorites("Алиса");
+                .isProjectVisible(projectName)
+                .isProjectInFavorites(projectName);
     }
 
-    public void isProjectDeletedFromFavorites() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void isProjectDeletedFromFavorites(String user, String password, String projectName) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
-                .isProjectVisible("Алиса")
-                .isProjectInFavorites("Алиса")
-                .isProjectDeletedFromFavorites("Алиса");
+                .isProjectVisible(projectName)
+                .isProjectDeletedFromFavorites(projectName);
     }
 
-    public void useCheckBoxes() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void useCheckBoxes(String user, String password, String projectName,
+                              String checkboxNameOne, String checkboxNameTwo, String checkboxNameThree ) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
-                .isCheckBoxesClickable("Projects")
-                .isCheckBoxesClickable("Test Cases")
-                .isCheckBoxesClickable("Test Runs");
+                .isCheckBoxesClickable(checkboxNameOne)
+                .isCheckBoxesClickable(checkboxNameTwo)
+                .isCheckBoxesClickable(checkboxNameThree);
     }
 
-    public void areCheckBoxesRemoved() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void areCheckBoxesRemoved(String user, String password, String projectName, String checkbox) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
-                .isCheckBoxesClickable("Projects")
-                .checkRemoveOfCheckBoxes("Projects");
+                .isCheckBoxesClickable(checkbox)
+                .checkRemoveOfCheckBoxes(checkbox);
     }
 
-    public void useClearButton() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void useClearButton(String user, String password, String label) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
-                .checkClearButton("Projects");
+                .checkClearButton(label);
     }
 
-    public void useNavigation(String menuName, String expectedTitle, String expectedUrl) {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void useNavigation(String user, String password, String menuName, String expectedTitle, String expectedUrl) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
                 .checkOfNavigation(menuName, expectedTitle, expectedUrl);
     }
 
-    public void useShowMoreButton() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void useShowMoreButton(String user, String password) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
                 .useShowMoreButton();
     }
 
-    public void useSwitchToProjectPage() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void useSwitchToProjectPage(String user, String password) {
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
                 .moveToProjectPage();
         projectPage.isPageOpened();

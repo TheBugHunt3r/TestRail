@@ -12,7 +12,7 @@ public class Picklist {
         this.label = label;
     }
 
-    public static void select(String label, String option) {
+    public static void selectOption(String label, String option) {
         getPicklistElement(label).selectOption(option);
     }
 

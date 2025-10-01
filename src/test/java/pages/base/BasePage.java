@@ -7,7 +7,6 @@ public class BasePage {
     public final String TO_DO_URL = "https://saucedemo111234555.testrail.io/index.php?/todos/overview/3";
     public final String TEST_CASES_URL =  "https://saucedemo111234555.testrail.io/index.php?/suites/view/3" +
             "&group_by=cases:section_id&group_order=asc&display=tree&display_deleted_cases=0";
+    public final String PROJECT_URL = "https://saucedemo111234555.testrail.io/index.php?/admin/projects/add/1";
 
-    public BasePage() {
-    }
 }

@@ -6,7 +6,6 @@ import wrappers.Filters;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static elements.ToDoPageElements.*;
-import static org.testng.Assert.assertEquals;
 import static wrappers.Filters.select;
 
 public class ToDoPage extends BasePage {
@@ -40,12 +39,12 @@ public class ToDoPage extends BasePage {
     }
 
     public ToDoPage chooseTestCase(String numTestCase) {
-        $x("//tr[@class='odd case ']//following-sibling::td//a[@id='case-link-id-" + numTestCase + "']").click();
+        chooseTC(numTestCase).click();
         return this;
     }
 
     public ToDoPage chooseTestRun(String testRunID) {
-        $x("//a[@id='run-link-id-" + testRunID + "']")
+        chooseTR(testRunID)
                 .shouldBe(visible).click();
         return this;
     }
@@ -61,10 +60,10 @@ public class ToDoPage extends BasePage {
     }
 
 
-    public ToDoPage checkGroupTestCase(String menuName, String expectedTitle) {
+    public ToDoPage checkGroupTestCase(String menuName) {
         select();
         Filters.setOption(menuName);
-        $x("//span[contains(text(), '" + menuName + "')]").shouldBe(visible);
+        groupTC(menuName).shouldBe(visible);
         REMOVE_GROUP_BUTTON.click();
         return this;
     }
@@ -72,25 +71,25 @@ public class ToDoPage extends BasePage {
     public ToDoPage checkGroupTestRun(String menuName, String expectedTitle) {
         select();
         Filters.setOption(menuName);
-        $x("//span[contains(text(), '" + menuName + "')]").shouldBe(visible);
+        groupTR(menuName).shouldBe(visible);
         REMOVE_GROUP_BUTTON.click();
         return this;
     }
 
     public ToDoPage checkFilterTestRun(String filterName, String milestoneName) {
         FILTER_BUTTON.click();
-        $x("//span[normalize-space()='" + filterName + "']").click();
+        filterTR(filterName).click();
         FILTER_INPUT.setValue(milestoneName);
         APPLY_FILTER_BUTTON.click();
-        $x("//span[@id='filterByName'][contains(text(), '" + filterName + "')]").shouldBe(visible);
+        filterTRTitle(filterName).shouldBe(visible);
         return this;
     }
 
     public ToDoPage checkFilterTestCase(String filterName) {
         FILTER_BUTTON.click();
-        $x("//span[normalize-space()='" + filterName + "']").click();
+        filterTC(filterName).click();
         APPLY_FILTER_BUTTON.click();
-        $x("//span[@id='filterByName'][contains(text(), '" + filterName + "')]").shouldBe(visible);
+        filterTCTitle(filterName).shouldBe(visible);
         return this;
     }
 }

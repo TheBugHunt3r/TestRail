@@ -8,11 +8,11 @@ public class TestCasesTest extends BaseTest {
 
     @Test
     public void checkPageIsOpened() {
-        testCaseStep.isPageOpened();
+        testCaseStep.isPageOpened(user, password);
     }
 
     @Test(dataProvider = "sortTestCases", dataProviderClass = NavigationData.class)
     public void checkSortTestCases(String title, String expTitle, String expResults) {
-        testCaseStep.sortTestCases(title, expTitle);
+        testCaseStep.sortTestCases(user, password, title, expTitle);
     }
 }

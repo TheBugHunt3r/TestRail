@@ -7,11 +7,11 @@ public class ProjectTest extends BaseTest {
 
     @Test
     public void checkCreateProject() {
-        projectStep.isProjectCreated();
+        projectStep.isProjectCreated(user, password, "Star");
     }
 
     @Test
     public void checkDeleteProject() {
-       projectStep.isProjectDeleted();
+       projectStep.isProjectDeleted(user, password, "Star");
     }
 }
