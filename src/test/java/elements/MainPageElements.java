@@ -1,7 +1,9 @@
 package elements;
 
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class MainPageElements {
@@ -14,7 +16,8 @@ public class MainPageElements {
             "[normalize-space()='Clear']");
     public static SelenideElement TEST_CHECKBOX =  $x("//div[@id='searchFilterOption_category_4']");
     public static SelenideElement ADD_TO_FAVORITES = $x("//a[@tooltip-text='Mark as project favorite.']");
-    public static SelenideElement DELETE_FROM_FAVORITE = $x("//a[@id='project-starred-3']");
+    public static SelenideElement DELETE_FROM_FAVORITE = $x("//a[@tooltip-text='Remove from project favorites.'][1]");
+    public static String CHECKBOX = "//label[normalize-space()='%s']";
 
     // ===== Inputs =====
     public static SelenideElement SEARCH_PROJECT = $x("//input[@data-testid='searchProjectInput']");
@@ -29,4 +32,37 @@ public class MainPageElements {
     public static SelenideElement SEARCH_RESULT = $x("//div[@id='newSearchResultsContent']//p[1]");
     public static SelenideElement ACTIVE_PROJECTS = $x("//h2[@id='activeHeader']");
     public static SelenideElement PAGE_TITLE = $x("//div[@class='content-header-title page_title']");
+
+
+    // ===== Active Locators =====
+    public static SelenideElement chooseButton(String projectName) {
+        String choose = String.format("//a[contains(@class, 'dropdown-menu-link ') and contains(text(), '%s')]", projectName);
+        return $x(choose);
+    }
+
+    public static SelenideElement project(String projectName) {
+        String xpath = String.format("//div[@class='summary-title text-ppp']//a[contains(text(),'%s')]", projectName);
+        return $x(xpath);
+    }
+
+    public static SelenideElement favoriteStar(String projectName) {
+        String xpath = String.format("//a[@id='project-star-3' and following::a[contains(text(),'%s')]]", projectName);
+        return $x(xpath);
+    }
+
+    public static SelenideElement removeFavoriteStar(String projectName) {
+        String xpath = String.format("//a[@id='project-starred-3' and following::a[contains(text(),'%s')]]", projectName);
+        return $x(xpath);
+    }
+
+    public static SelenideElement checkBox(String label) {
+        String xpath = String.format("//label[normalize-space()='%s']", label);
+        return $x(xpath);
+    }
+
+    public static SelenideElement navigation(String menuName) {
+        String xpath = String.format("//a[normalize-space()='%s']", menuName);
+        return $x(xpath);
+    }
+
 }

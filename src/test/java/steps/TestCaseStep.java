@@ -12,14 +12,14 @@ public class TestCaseStep {
         loginStep = new LoginStep();
     }
 
-    public void isPageOpened() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void isPageOpened(String user, String password) {
+        loginStep.testWithPositiveCred(user, password);
         testCasesPage.openPage()
                 .isPageOpened();
     }
 
-    public void sortTestCases(String title, String expTitle) {
-        isPageOpened();
+    public void sortTestCases(String user, String password, String title, String expTitle) {
+        isPageOpened(user, password);
         testCasesPage.sortTestCases(title, expTitle);
     }
 }

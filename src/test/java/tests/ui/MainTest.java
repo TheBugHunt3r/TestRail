@@ -11,7 +11,7 @@ public class MainTest extends BaseTest {
 
     @Test
     public void checkIsPageOpened() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened();
     }
 
@@ -23,66 +23,67 @@ public class MainTest extends BaseTest {
 
     @Test
     public void checkLogOut() {
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+        loginStep.testWithPositiveCred(user, password);
         mainPage.logOut();
     }
 
     @Test
     public void checkSearchProject() {
-       mainStep.useSearchProject();
+       mainStep.useSearchProject(user, password, "Алиса");
     }
 
     @Test
     public void checkTopSearch() {
-        mainStep.useTopSearch();
+        mainStep.useTopSearch(user, password, "Алиса");
     }
 
     @Test
     public void checkAddProjectButton() {
-        mainStep.clickAddProjectButton();
+        mainStep.clickAddProjectButton(user, password, "Алиса");
     }
 
     @Test
     public void checkVisibilityOfProject() {
-        mainStep.isProjectVisible();
+        mainStep.isProjectVisible(user, password, "Алиса");
     }
 
     @Test
     public void checkProjectInFavorites() {
-        mainStep.isProjectInFavorites();
+        mainStep.isProjectInFavorites(user, password, "Алиса");
     }
 
     @Test
     public void checkProjectDeletedFromFavorites() {
-        mainStep.isProjectDeletedFromFavorites();
+        mainStep.isProjectDeletedFromFavorites(user, password, "Алиса");
     }
 
     @Test
     public void checkCheckBoxes() {
-       mainStep.useCheckBoxes();
+       mainStep.useCheckBoxes(user, password, "Алиса", "Projects",
+               "Test Cases", "Test Runs");
     }
 
     @Test
     public void checkRemovingCheckBoxes() {
-        mainStep.areCheckBoxesRemoved();
+        mainStep.areCheckBoxesRemoved(user, password, "Алиса", "Projects");
     }
 
     @Test
     public void checkClearButton() {
-       mainStep.useClearButton();
+       mainStep.useClearButton(user, password, "Projects");
     }
 
     @Test(dataProvider = "navigationData", dataProviderClass = NavigationData.class)
     public void checkNavigation(String menuName, String expectedTitle, String expectedUrl) {
-        mainStep.useNavigation(menuName, expectedTitle, expectedUrl);
+        mainStep.useNavigation(user, password, menuName, expectedTitle, expectedUrl);
     }
 
     @Test
     public void checkShowMoreButton() {
-        mainStep.useShowMoreButton();
+        mainStep.useShowMoreButton(user, password);
     }
     @Test
     public void checkSwitchToProjectPage() {
-        mainStep.useSwitchToProjectPage();
+        mainStep.useSwitchToProjectPage(user, password);
     }
 }

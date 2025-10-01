@@ -1,5 +1,7 @@
 package pages;
 
+import com.codeborne.selenide.SelenideElement;
+import elements.MainPageElements;
 import pages.base.BasePage;
 
 import static com.codeborne.selenide.Condition.*;
@@ -37,8 +39,7 @@ public class MainPage extends BasePage {
     public MainPage searchProject(String projectName) {
         SEARCH_PROJECT.shouldBe(visible);
         SEARCH_PROJECT.setValue(projectName);
-        $x("//a[contains(@class, 'dropdown-menu-link ') and contains(text(), '" + projectName + "')]").click();
-        $x("//div[contains(@class, 'content-header-title page_title') and contains(text(), '" + projectName + "')]").shouldBe(visible);
+        chooseButton(projectName).click();
         return this;
     }
 
@@ -60,52 +61,52 @@ public class MainPage extends BasePage {
     }
 
     public MainPage isProjectVisible(String projectName) {
-        $x("//div[@class='summary-title text-ppp']//a[contains(text(),'" + projectName + "')]").shouldBe(visible);
+        project(projectName).shouldBe(visible);
         return this;
     }
 
     public MainPage isProjectInFavorites(String projectName) {
-        $x("//div[@id='project-3']//a[contains(text(),'" + projectName + "')]").shouldBe(visible);
-        ADD_TO_FAVORITES.click();
+        favoriteStar(projectName).shouldBe(visible);
+        favoriteStar(projectName).click();
         ACTIVE_PROJECTS.shouldBe(visible);
         return this;
     }
 
     public MainPage isProjectDeletedFromFavorites(String projectName) {
-        $x("//div[@id='project-3']//a[contains(text(),'" + projectName + "')]").shouldBe(visible);
-        DELETE_FROM_FAVORITE.shouldBe(visible).click();
+        removeFavoriteStar(projectName).shouldBe(visible);
+        removeFavoriteStar(projectName).click();
         ACTIVE_PROJECTS.shouldNotBe(visible);
         return this;
     }
     public MainPage isCheckBoxesClickable(String label) {
         TOP_SEARCH.shouldBe(visible)
                 .click();
-        $x("//label[normalize-space()='"+label+"']").click();
-        $x("//label[normalize-space()='"+label+"']").isSelected();
+        checkBox(label).click();
+        checkBox(label).isSelected();
         return this;
     }
 
     public MainPage checkRemoveOfCheckBoxes(String label) {
         TOP_SEARCH.shouldBe(visible)
                 .click();
-        $x("//label[normalize-space()='"+label+"']").click();
-        $x("//label[normalize-space()='"+label+"']").shouldNotBe(selected);
+        checkBox(label).click();
+        checkBox(label).shouldNotBe(selected);
         return this;
     }
 
     public MainPage checkClearButton(String label) {
         TOP_SEARCH.shouldBe(visible)
                 .click();
-        $x("//label[normalize-space()='"+label+"']").click();
-        $x("//label[normalize-space()='"+label+"']").isSelected();
+        checkBox(label).click();
+        checkBox(label).isSelected();
         CLEAR_BUTTON.click();
-        $x("//label[normalize-space()='"+label+"']").shouldNotBe(selected);
+        checkBox(label).shouldNotBe(selected);
         return this;
     }
     public MainPage checkOfNavigation(String menuName, String expectedTitle, String expectedUrl) {
         TOP_SEARCH.shouldBe(visible)
                 .click();
-        $x("//a[normalize-space()='"+ menuName +"']").click();
+        navigation(menuName).click();
         webdriver().shouldHave(urlContaining(expectedUrl));
         return this;
     }

@@ -27,4 +27,45 @@ public class ToDoPageElements {
     public static SelenideElement TESTS_RESULTS = $x("//a[@data-testid='navigateToRunStatusButton']");
     public static SelenideElement FILTER_INPUT = $x("//div[@id='milestoneSelection_chosen']//input[@type='text']");
     public static SelenideElement SORT_TEST_CASES = $x("//span[@id='orderByEmpty']");
+
+    // ===== Active Locators =====
+    public static SelenideElement chooseTC(String numTestCase) {
+        String xpath = String.format("//tr[@class='odd case ']//following-sibling::td//a[@id='case-link-id-%s']", numTestCase);
+        return $x(xpath);
+    }
+
+    public static SelenideElement chooseTR(String testRunID) {
+        String xpath = String.format("//a[@id='run-link-id-%s']", testRunID);
+        return $x(xpath);
+    }
+
+    public static SelenideElement groupTC(String menuName) {
+        String xpath = String.format("//span[contains(text(), '%s')]", menuName);
+        return $x(xpath);
+    }
+
+    public static SelenideElement groupTR(String menuName) {
+        String xpath = String.format("//span[contains(text(), '%s')]", menuName);
+        return $x(xpath);
+    }
+
+    public static SelenideElement filterTR(String filterName) {
+        String xpath = String.format("//span[@class='checkbox-name text-ppp'][contains(text(), '%s')]", filterName);
+        return $x(xpath);
+    }
+
+    public static SelenideElement filterTRTitle(String filterName) {
+        String xpath = String.format("//span[@id='filterByName'][contains(text(), '%s')]", filterName);
+        return $x(xpath);
+    }
+
+    public static SelenideElement filterTC(String filterName) {
+        String xpath = String.format("//span[normalize-space()='%s']", filterName);
+        return $x(xpath);
+    }
+
+    public static SelenideElement filterTCTitle(String filterName) {
+        String xpath = String.format("//span[@id='filterByName'][contains(text(), '%s')]", filterName);
+        return $x(xpath);
+    }
 }

@@ -17,17 +17,17 @@ public class ProjectStep {
         loginStep = new LoginStep();
     }
 
-    public void isProjectCreated() {
-        Project project = ProjectFactory.createProject("Default Access");
-        loginStep.testWithPositiveCred("stasgolovnev22@gmail.com", "375333631462Stas!");
+    public void isProjectCreated(String user, String password, String projectName) {
+        Project project = ProjectFactory.createProject();
+        loginStep.testWithPositiveCred(user, password);
         mainPage.switchToProjectPage();
         projectPage.isPageOpened();
-        projectPage.createProject(project, "Star");
+        projectPage.createProject(project, projectName);
     }
 
-    public void isProjectDeleted() {
-        Project project = ProjectFactory.createProject("Default Access");
-        isProjectCreated();
-        projectPage.deleteProject(project,"Star");
+    public void isProjectDeleted(String user, String password, String projectName) {
+        Project project = ProjectFactory.createProject();
+        isProjectCreated(user, password, projectName);
+        projectPage.deleteProject(project,projectName);
     }
 }

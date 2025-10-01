@@ -15,4 +15,17 @@ public class ProjectPageElements {
     public static SelenideElement DELETE_PROJECT_BUTTON = $x("//span[@class='dialog-confirm']/*");
     public static SelenideElement CONFIRM_DELETE_BUTTON = $x("//a[@data-testid='caseFieldsTabDeleteDialogButtonOk']");
 
+    // ===== Active Locators =====
+    public static SelenideElement switchPageButton(String label) {
+        String xpath = String.format("//div[@class='tab-header']//a[contains(text(), '%s')]", label);
+        return $x(xpath);
+    }
+
+    public static SelenideElement deleteSmallButton(String label) {
+        String xpath = String.format("//tr[@class='header']/following-sibling::" +
+                "tr[@class='odd hoverSensitive']//td/child::a[contains(text(), '%s')]" +
+                "//ancestor::tr//a//div[@class='icon-small-delete']", label);
+        return $x(xpath);
+    }
+
 }
