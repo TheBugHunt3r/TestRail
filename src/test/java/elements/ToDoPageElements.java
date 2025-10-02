@@ -19,7 +19,7 @@ public class ToDoPageElements {
             " button-positive button-dark button-ok']");
     public static SelenideElement FILTER_BUTTON = $x("//span[@id='filterByEmpty']");
     public static SelenideElement REMOVE_GROUP_BUTTON = $x("//div[@class='icon-orderreset']");
-    public static SelenideElement NEXT_BUTTON =  $x("//div[@class='icon-direction-next']");
+    public static SelenideElement NEXT_BUTTON = $x("//div[@class='icon-direction-next']");
     public static SelenideElement TEST_CASES_TAB = $x("//a[@id='navigation-todos-overview-cases']");
 
     // ===== Active Elements =====

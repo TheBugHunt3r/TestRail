@@ -146,7 +146,7 @@ public class MainPage extends BasePage {
         TOP_SEARCH.shouldBe(visible)
                 .click();
         SHOW_MORE_BUTTON.click();
-       TEST_CHECKBOX.shouldBe(visible);
+        TEST_CHECKBOX.shouldBe(visible);
         return this;
     }
 

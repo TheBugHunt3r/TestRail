@@ -41,17 +41,18 @@ public class BaseTest {
         boolean headless = Boolean.parseBoolean(System.getProperty("headless", "true"));
 
         Configuration.browser = browser;
-        Configuration.headless = headless;
-        Configuration.browserSize = "1920x1080";
+        //Configuration.headless = headless;
+        //Configuration.browserSize = "1920x1080";
         Configuration.timeout = 15000;
-        Configuration.browserPosition = "0x0";
+        //Configuration.browserPosition = "0x0";
+        Configuration.clickViaJs = true;
         Configuration.remote = System.getProperty("remote", null);
         Configuration.remote = System.getProperty("remote", null);
 
         // Настройка ChromeOptions для Jenkins
         ChromeOptions options = new ChromeOptions();
         if (headless) {
-            options.addArguments("--headless=new");
+            //options.addArguments("--headless=new");
         }
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
@@ -73,6 +74,7 @@ public class BaseTest {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true)
+                .includeSelenideSteps(false)
         );
     }
 

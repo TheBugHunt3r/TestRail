@@ -23,6 +23,7 @@ public class ToDoStep {
         toDoPage.openPage()
                 .isPageOpened();
     }
+
     public void isTestRunOpened(String user, String password) {
         logger.info("Проверка открытия тест рана");
         isPageOpened(user, password);
@@ -65,6 +66,7 @@ public class ToDoStep {
         toDoPage
                 .checkGroupTestRun(menuName, expectedTitle);
     }
+
     public void useTestRunFilters(String user, String password, String filterName, String milestoneName) {
         logger.info("Проверка фильтрации тест ранов");
         isPageOpened(user, password);

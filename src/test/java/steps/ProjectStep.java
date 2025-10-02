@@ -22,19 +22,19 @@ public class ProjectStep {
         loginStep = new LoginStep();
     }
 
-    public void isProjectCreated(String user, String password, String projectName) {
+    public void isProjectCreated(String user, String password, String projectName,  String select, String option) {
         logger.info("Проверка создания проекта");
         Project project = ProjectFactory.createProject();
         loginStep.testWithPositiveCred(user, password);
         mainPage.switchToProjectPage();
         projectPage.isPageOpened();
-        projectPage.createProject(project, projectName);
+        projectPage.createProject(project, projectName, select, option);
     }
 
-    public void isProjectDeleted(String user, String password, String projectName) {
+    public void isProjectDeleted(String user, String password, String projectName, String select, String option) {
         logger.info("Проверка удаления проекта");
         Project project = ProjectFactory.createProject();
-        isProjectCreated(user, password, projectName);
-        projectPage.deleteProject(project,projectName);
+        isProjectCreated(user, password, projectName, select, option);
+        projectPage.deleteProject(project, projectName);
     }
 }

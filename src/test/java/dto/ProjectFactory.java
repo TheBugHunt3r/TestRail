@@ -4,7 +4,7 @@ import com.github.javafaker.Faker;
 
 public class ProjectFactory {
 
-    public  static String URL = "https://chat.deepseek.com/%id%";
+    public static String URL = "https://chat.deepseek.com/%id%";
 
     public static Project createProject() {
         Faker faker = new Faker();

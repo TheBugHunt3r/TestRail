@@ -8,7 +8,7 @@
 
     <test name="Chrome">
         <classes>
-           <class name="tests.ui.LoginTest"/>
+            <class name="tests.ui.LoginTest"/>
             <class name="tests.ui.ProjectTest"/>
             <parameter name="browser" value="chrome"/>
         </classes>

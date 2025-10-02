@@ -3,6 +3,7 @@ package wrappers;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static elements.WrapperElements.getPickList;
 
 public class Picklist {
 
@@ -17,6 +18,6 @@ public class Picklist {
     }
 
     private static SelenideElement getPicklistElement(String label) {
-        return $x("//div[@class='form-group']//label[contains(text(),'" + label + "')]/following-sibling::*[1]");
+        return getPickList(label);
     }
 }

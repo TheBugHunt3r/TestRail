@@ -3,7 +3,7 @@
 <suite thread-count="2" name="Test TestRail" parallel="tests">
     <test name="Thread#1">
         <classes>
-           <class name="tests.ui.LoginTest"/>
+            <class name="tests.ui.LoginTest"/>
             <class name="tests.ui.MainTest"/>
         </classes>
 
