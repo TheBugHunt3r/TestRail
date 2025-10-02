@@ -1,8 +1,10 @@
 package wrappers;
 
 import com.codeborne.selenide.SelenideElement;
+import elements.WrapperElements;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static elements.WrapperElements.getIntegrationField;
 
 public class IntegrationField {
 
@@ -13,6 +15,6 @@ public class IntegrationField {
     }
 
     public static void setOption(String label, String text) {
-        $x("//label[contains(., '" + label + "')]/following-sibling::div[contains(@class, 'searchable')]//select").selectOption(text);
+        getIntegrationField(label).selectOption(text);
     }
 }

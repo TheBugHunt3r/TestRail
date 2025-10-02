@@ -1,6 +1,10 @@
 package wrappers;
 
+import elements.WrapperElements;
+
 import static com.codeborne.selenide.Selenide.$x;
+import static elements.WrapperElements.FILTER;
+import static elements.WrapperElements.getFILTER;
 
 public class Filters {
 
@@ -11,11 +15,11 @@ public class Filters {
     }
 
     public static void select() {
-        $x("//span[@id='groupByEmpty']").click();
+        FILTER.click();
     }
 
     public static void setOption(String option) {
-         $x("//a[@class='dropdown-menu-link'][contains(text(), '" + option + "')]").click();
+        getFILTER(option).click();
     }
 }
 

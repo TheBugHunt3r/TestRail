@@ -19,8 +19,8 @@ public class LoginStep {
     MainPage mainPage;
 
     public LoginStep() {
-       loginPage = new LoginPage();
-       mainPage = new MainPage();
+        loginPage = new LoginPage();
+        mainPage = new MainPage();
     }
 
     public void testWithPositiveCred(String user, String password) {

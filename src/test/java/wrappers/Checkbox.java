@@ -1,6 +1,9 @@
 package wrappers;
 
+import elements.WrapperElements;
+
 import static com.codeborne.selenide.Selenide.$x;
+import static elements.WrapperElements.checkbox;
 
 public class Checkbox {
     String label;
@@ -8,7 +11,8 @@ public class Checkbox {
     public Checkbox(String label) {
         this.label = label;
     }
+
     public static void check(String label) {
-        $x("//strong[normalize-space()='"+label+"']").click();
+        checkbox(label).click();
     }
 }

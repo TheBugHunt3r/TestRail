@@ -1,8 +1,10 @@
 package wrappers;
 
 import com.codeborne.selenide.SelenideElement;
+import elements.WrapperElements;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static elements.WrapperElements.getRadioButton;
 
 public class RadioButton {
     private final SelenideElement wrapper;
@@ -12,8 +14,8 @@ public class RadioButton {
     }
 
     public static void select(String label) {
-        $x("//strong[text()='"+ label+"']").click();
-        $x("//strong[text()='"+ label+"']").isSelected();
+        getRadioButton(label).click();
+        getRadioButton(label).isSelected();
 
     }
 }

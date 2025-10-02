@@ -31,8 +31,8 @@ public class ProjectPage extends BasePage {
     }
 
     @Step("Создание проекта с названием '{projectName}'")
-    public ProjectPage createProject(Project project, String projectName) {
-        logger.info("Создание проекта с названием");
+    public ProjectPage createProject(Project project, String projectName, String select, String option) {
+        logger.info("Создание проекта");
         setNormalText("Name", projectName);
         setText("Announcement", project.getAnnouncement());
         check("Show the announcement on the overview page");
@@ -40,13 +40,14 @@ public class ProjectPage extends BasePage {
         select("Use multiple test suites to manage cases");
         select("Use a single repository for all cases (recommended)");
         switchPage("Access");
-        selectOption("Default Access", "Tester");
+        selectOption("Default Access", select);
         switchPage("Defects");
-        setOption("Defect Plugin", "Asana");
-        setBugText("Defect View Url", project.getDefect_view_url());;
+        setOption("Defect Plugin", option);
+        setBugText("Defect View Url", project.getDefect_view_url());
+        ;
         setBugText("Defect Add Url", project.getDefect_add_url());
         switchPage("References");
-        setOption("Reference Plugin", "Asana");
+        setOption("Reference Plugin", option);
         setBugText("Reference View Url", project.getReference_view_url());
         setBugText("Reference Add Url", project.getReference_add_url());
         switchPage("User Variables");
@@ -65,7 +66,7 @@ public class ProjectPage extends BasePage {
 
     @Step("Удаление проекта с названием '{projectName}'")
     public ProjectPage deleteProject(Project project, String projectName) {
-        logger.info("Удаление проекта с названием");
+        logger.info("Удаление проекта");
         deleteSmallButton(projectName).click();
         DELETE_PROJECT_BUTTON.click();
         CONFIRM_DELETE_BUTTON.click();

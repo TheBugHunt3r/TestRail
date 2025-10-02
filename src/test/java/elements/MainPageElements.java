@@ -14,7 +14,7 @@ public class MainPageElements {
     public static SelenideElement SHOW_MORE_BUTTON = $x("//div[@id='filterNewSearchContent']//a[@id='category_show_more']");
     public static SelenideElement CLEAR_BUTTON = $x("//div[@id='filter-category']//span[@class='search-filter-clear-button']" +
             "[normalize-space()='Clear']");
-    public static SelenideElement TEST_CHECKBOX =  $x("//div[@id='searchFilterOption_category_4']");
+    public static SelenideElement TEST_CHECKBOX = $x("//div[@id='searchFilterOption_category_4']");
     public static SelenideElement ADD_TO_FAVORITES = $x("//a[@tooltip-text='Mark as project favorite.']");
     public static SelenideElement DELETE_FROM_FAVORITE = $x("//a[@tooltip-text='Remove from project favorites.'][1]");
     public static String CHECKBOX = "//label[normalize-space()='%s']";

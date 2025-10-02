@@ -68,7 +68,7 @@ public class MainStep {
     }
 
     public void useCheckBoxes(String user, String password, String projectName,
-                              String checkboxNameOne, String checkboxNameTwo, String checkboxNameThree ) {
+                              String checkboxNameOne, String checkboxNameTwo, String checkboxNameThree) {
         logger.info("Проверка активации чек боксов");
         loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
