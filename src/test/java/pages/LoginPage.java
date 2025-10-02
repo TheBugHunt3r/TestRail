@@ -3,6 +3,8 @@ package pages;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.base.BasePage;
 import elements.LoginPageElements;
 
@@ -13,20 +15,20 @@ import static elements.LoginPageElements.*;
 
 public class LoginPage extends BasePage {
 
-
-
     public LoginPage() {
         super();
     }
 
     @Step("Открытие страницы авторизации")
     public LoginPage open() {
+        logger.info("Открытие страницы авторизации");
         Selenide.open(BASE_URL);
         return this;
     }
 
     @Step("Вход в магазин с именем '{user}' и паролем '{password}'")
     public LoginPage logIn(String user, String password) {
+        logger.info("Вход в магазин с именем '{user}' и паролем '{password}'");
         EMAIL_FIELD.setValue(user);
         PASSWORD_FIELD.setValue(password);
         LOGIN_BUTTON.click();
@@ -35,6 +37,7 @@ public class LoginPage extends BasePage {
 
     @Step("Получение ошибки '{expectedText}'")
     public SelenideElement getErrorMessage(String expectedText) {
+        logger.info("Получение ошибки '{expectedText}'");
         return ERROR_MESSAGE.shouldBe(visible).shouldHave(text(expectedText));
     }
 }

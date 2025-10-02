@@ -40,7 +40,7 @@ public class BaseTest {
         Configuration.baseUrl = "https://www.testrail.com";
         Configuration.timeout = 15000;
         Configuration.clickViaJs = true;
-        //Configuration.headless = true;
+        Configuration.headless = true;
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         Configuration.browserCapabilities = options;
@@ -56,6 +56,7 @@ public class BaseTest {
         projectStep = new ProjectStep();
         testCaseStep = new TestCaseStep();
         toDoStep = new ToDoStep();
+        mainPage = new MainPage();
     }
 
     @AfterMethod

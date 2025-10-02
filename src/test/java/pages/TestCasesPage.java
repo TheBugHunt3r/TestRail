@@ -17,12 +17,14 @@ public class TestCasesPage extends BasePage {
 
     @Step("Открытие страницы тест кейсов")
     public TestCasesPage openPage() {
+        logger.info("Открытие страницы тест кейсов");
         open(TEST_CASES_URL);
         return this;
     }
 
     @Step("Проверка открытия страницы тест кейсов")
     public TestCasesPage isPageOpened() {
+        logger.info("Проверка открытия страницы тест кейсов");
         openPage();
         TEST_CASES_TITLE.shouldBe(visible);
         return this;
@@ -30,6 +32,7 @@ public class TestCasesPage extends BasePage {
 
     @Step("Сортировка проектов по '{title}'")
     public TestCasesPage sortTestCases(String title, String expTitle) {
+        logger.info("Сортировка проектов по '{title}'");
         SORT_TEST_CASES.shouldBe(visible)
                 .click();
         Filters.setOption(title);

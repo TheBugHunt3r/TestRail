@@ -2,10 +2,15 @@ package steps;
 
 import dto.Project;
 import dto.ProjectFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.MainPage;
 import pages.ProjectPage;
+import pages.base.BasePage;
 
 public class ProjectStep {
+
+    public static final Logger logger = LoggerFactory.getLogger(ProjectStep.class);
 
     LoginStep loginStep;
     MainPage mainPage;
@@ -18,6 +23,7 @@ public class ProjectStep {
     }
 
     public void isProjectCreated(String user, String password, String projectName) {
+        logger.info("Проверка создания проекта");
         Project project = ProjectFactory.createProject();
         loginStep.testWithPositiveCred(user, password);
         mainPage.switchToProjectPage();
@@ -26,6 +32,7 @@ public class ProjectStep {
     }
 
     public void isProjectDeleted(String user, String password, String projectName) {
+        logger.info("Проверка удаления проекта");
         Project project = ProjectFactory.createProject();
         isProjectCreated(user, password, projectName);
         projectPage.deleteProject(project,projectName);

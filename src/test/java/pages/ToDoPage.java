@@ -1,6 +1,7 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import pages.base.BasePage;
 import wrappers.Filters;
 
@@ -13,12 +14,14 @@ public class ToDoPage extends BasePage {
 
     @Step("Открытие страницы To Do")
     public ToDoPage openPage() {
+        logger.info("Открытие страницы To Do");
         open(TO_DO_URL);
         return this;
     }
 
     @Step("Проверка открытия страницы To Do")
     public ToDoPage isPageOpened() {
+        logger.info("Проверка открытия страницы To Do");
         openPage();
         TO_DO_TITLE.shouldBe(visible);
         return this;
@@ -26,6 +29,7 @@ public class ToDoPage extends BasePage {
 
     @Step("Открытие тест рана")
     public TestRunPage openTestRun() {
+        logger.info("Открытие тест рана");
         TEST_RUN.shouldBe(visible)
                 .click();
         TESTS_RESULTS.shouldBe(visible);
@@ -34,24 +38,28 @@ public class ToDoPage extends BasePage {
 
     @Step("Открытие вкладки тест кейсов")
     public ToDoPage openTestCasesTab() {
+        logger.info("Открытие вкладки тест кейсов");
         TEST_CASES_TAB.click();
         return this;
     }
 
     @Step("Проверка открытия вкладки")
     public ToDoPage isTabSelected() {
+        logger.info("Проверка открытия вкладки");
         TEST_CASE_ID.shouldBe(visible);
         return this;
     }
 
     @Step("Выбор тест кейса '{numTestCase}'")
     public ToDoPage chooseTestCase(String numTestCase) {
+        logger.info("Выбор тест кейса '{numTestCase}'");
         chooseTC(numTestCase).click();
         return this;
     }
 
     @Step("Выбор тест рана '{testRunID}'")
     public ToDoPage chooseTestRun(String testRunID) {
+        logger.info("Выбор тест рана '{testRunID}'");
         chooseTR(testRunID)
                 .shouldBe(visible).click();
         return this;
@@ -59,18 +67,21 @@ public class ToDoPage extends BasePage {
 
     @Step("Проверка открытия тест рана")
     public ToDoPage isTestRunOpened() {
+        logger.info("Проверка открытия тест рана");
         TEST_RUN_LOGO.shouldBe(visible);
         return this;
     }
 
     @Step("Проверка открытия тест кейса")
     public ToDoPage isTestCaseOpened() {
+        logger.info("Проверка открытия тест кейса");
         NEXT_BUTTON.shouldBe(visible);
         return this;
     }
 
     @Step("Группировка тест кейсов")
     public ToDoPage checkGroupTestCase(String menuName) {
+        logger.info("Группировка тест кейсов");
         select();
         Filters.setOption(menuName);
         groupTC(menuName).shouldBe(visible);
@@ -80,6 +91,7 @@ public class ToDoPage extends BasePage {
 
     @Step("Группировка тест ранов")
     public ToDoPage checkGroupTestRun(String menuName, String expectedTitle) {
+        logger.info("Группировка тест ранов");
         select();
         Filters.setOption(menuName);
         groupTR(menuName).shouldBe(visible);
@@ -89,6 +101,7 @@ public class ToDoPage extends BasePage {
 
     @Step("Фильтрация тест ранов с использованием '{filterName}' и '{milestoneName}'")
     public ToDoPage checkFilterTestRun(String filterName, String milestoneName) {
+        logger.info("Фильтрация тест ранов с использованием '{filterName}' и '{milestoneName}'");
         FILTER_BUTTON.click();
         filterTR(filterName).click();
         FILTER_INPUT.setValue(milestoneName);
@@ -99,6 +112,7 @@ public class ToDoPage extends BasePage {
 
     @Step("Фильтрация тест ранов с использованием '{filterName}'")
     public ToDoPage checkFilterTestCase(String filterName) {
+        logger.info("Фильтрация тест ранов с использованием '{filterName}'");
         FILTER_BUTTON.click();
         filterTC(filterName).click();
         APPLY_FILTER_BUTTON.click();
