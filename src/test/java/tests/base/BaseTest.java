@@ -36,21 +36,28 @@ public class BaseTest {
     protected String password = System.getProperty("password", PropertyReader.getProperty("password"));
 
     @BeforeMethod
-    public void setUp (ITestContext context) {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://www.testrail.com";
-        Configuration.timeout = 15000;
-        Configuration.clickViaJs = true;
-        Configuration.headless = true;
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        Configuration.browserCapabilities = options;
+    public void setup() {
+        String browser = System.getProperty("browser", "chrome");
+        boolean headless = Boolean.parseBoolean(System.getProperty("headless", "true"));
 
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
-                .screenshots(true)
-                .savePageSource(true)
-                .includeSelenideSteps(false)
-        );
+        Configuration.browser = browser;
+        Configuration.headless = headless;
+        Configuration.browserSize = "1920x1080";
+        Configuration.timeout = 15000;
+        Configuration.browserPosition = "0x0";
+        Configuration.remote = System.getProperty("remote", null);
+        Configuration.remote = System.getProperty("remote", null);
+
+        // Настройка ChromeOptions для Jenkins
+        ChromeOptions options = new ChromeOptions();
+        if (headless) {
+            options.addArguments("--headless=new");
+        }
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--remote-allow-origins=*");
 
         loginStep = new LoginStep();
         mainStep = new MainStep();
@@ -58,6 +65,15 @@ public class BaseTest {
         testCaseStep = new TestCaseStep();
         toDoStep = new ToDoStep();
         mainPage = new MainPage();
+
+        Configuration.browserCapabilities = options;
+
+        WebDriverManager.chromedriver().setup();
+
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(true)
+        );
     }
 
     @AfterMethod
