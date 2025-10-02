@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import elements.MainPageElements;
+import io.qameta.allure.Step;
 import pages.base.BasePage;
 
 import static com.codeborne.selenide.Condition.*;
@@ -12,6 +13,7 @@ import static elements.MainPageElements.*;
 
 public class MainPage extends BasePage {
 
+    @Step("Проверка открытия главной страницы")
     public MainPage isPageOpened() {
         LOGO.shouldBe(visible).shouldHave(
                 text("Dashboard")
@@ -19,6 +21,7 @@ public class MainPage extends BasePage {
         return this;
     }
 
+    @Step("Проверка открытия FAB")
     public MainPage isFabOpened() {
         FAB.shouldBe(visible)
                 .click();
@@ -28,6 +31,7 @@ public class MainPage extends BasePage {
         return this;
     }
 
+    @Step("Выход из аккаунта")
     public LoginPage logOut() {
         DROP_LINK.shouldBe(visible)
                 .click();
@@ -36,6 +40,7 @@ public class MainPage extends BasePage {
         return new LoginPage();
     }
 
+    @Step("Поиск проекта по названию '{projectName}'")
     public MainPage searchProject(String projectName) {
         SEARCH_PROJECT.shouldBe(visible);
         SEARCH_PROJECT.setValue(projectName);
@@ -43,6 +48,7 @@ public class MainPage extends BasePage {
         return this;
     }
 
+    @Step("Поиск проекта '{projectName}' с помощью главной поисковой строки")
     public MainPage useTopSearch(String projectName) {
         TOP_SEARCH.shouldBe(visible)
                 .click();
@@ -53,6 +59,7 @@ public class MainPage extends BasePage {
         return this;
     }
 
+    @Step("Переключение на страницу проекта")
     public ProjectPage switchToProjectPage() {
         ADD_PROJECT_BUTTON.shouldBe(visible)
                 .click();
@@ -60,11 +67,13 @@ public class MainPage extends BasePage {
         return new ProjectPage();
     }
 
+    @Step("Проверка видимости проекта '{projectName}'")
     public MainPage isProjectVisible(String projectName) {
         project(projectName).shouldBe(visible);
         return this;
     }
 
+    @Step("Проверка отображения проекта '{projectName}' в избранном")
     public MainPage isProjectInFavorites(String projectName) {
         favoriteStar(projectName).shouldBe(visible);
         favoriteStar(projectName).click();
@@ -72,12 +81,15 @@ public class MainPage extends BasePage {
         return this;
     }
 
+    @Step("Проверка удаления проекта '{projectName}' из избранного")
     public MainPage isProjectDeletedFromFavorites(String projectName) {
         removeFavoriteStar(projectName).shouldBe(visible);
         removeFavoriteStar(projectName).click();
         ACTIVE_PROJECTS.shouldNotBe(visible);
         return this;
     }
+
+    @Step("Проверка выбора чекбокса '{label}'")
     public MainPage isCheckBoxesClickable(String label) {
         TOP_SEARCH.shouldBe(visible)
                 .click();
@@ -86,6 +98,7 @@ public class MainPage extends BasePage {
         return this;
     }
 
+    @Step("Проверка удаления чекбокса '{label}'")
     public MainPage checkRemoveOfCheckBoxes(String label) {
         TOP_SEARCH.shouldBe(visible)
                 .click();
@@ -94,7 +107,8 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    public MainPage checkClearButton(String label) {
+    @Step("Нажатие кнопки очищения")
+    public MainPage useClearButton(String label) {
         TOP_SEARCH.shouldBe(visible)
                 .click();
         checkBox(label).click();
@@ -103,6 +117,8 @@ public class MainPage extends BasePage {
         checkBox(label).shouldNotBe(selected);
         return this;
     }
+
+    @Step("Проверка навигации по страницам '{menuName}'")
     public MainPage checkOfNavigation(String menuName, String expectedTitle, String expectedUrl) {
         TOP_SEARCH.shouldBe(visible)
                 .click();
@@ -110,6 +126,8 @@ public class MainPage extends BasePage {
         webdriver().shouldHave(urlContaining(expectedUrl));
         return this;
     }
+
+    @Step("Нажатие кнопки 'Show More'")
     public MainPage useShowMoreButton() {
         TOP_SEARCH.shouldBe(visible)
                 .click();
@@ -117,6 +135,8 @@ public class MainPage extends BasePage {
        TEST_CHECKBOX.shouldBe(visible);
         return this;
     }
+
+    @Step("Переход на страницу проекта")
     public ProjectPage moveToProjectPage() {
         ADD_PROJECT_BUTTON.click();
         return new ProjectPage();

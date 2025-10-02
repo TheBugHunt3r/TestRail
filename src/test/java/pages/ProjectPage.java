@@ -2,6 +2,7 @@ package pages;
 
 import dto.Project;
 import elements.ProjectPageElements;
+import io.qameta.allure.Step;
 import pages.base.BasePage;
 import wrappers.*;
 
@@ -20,6 +21,7 @@ import static wrappers.TextArea.setText;
 
 public class ProjectPage extends BasePage {
 
+    @Step("Проверка открытия страницы проекта")
     public ProjectPage isPageOpened() {
         LOGO.shouldBe(visible).shouldHave(
                 text("Add Project")
@@ -27,11 +29,7 @@ public class ProjectPage extends BasePage {
         return this;
     }
 
-    public ProjectPage openPage() {
-        open(PROJECT_URL);
-        return this;
-    }
-
+    @Step("Создание проекта с названием '{projectName}'")
     public ProjectPage createProject(Project project, String projectName) {
         setNormalText("Name", projectName);
         setText("Announcement", project.getAnnouncement());
@@ -56,11 +54,13 @@ public class ProjectPage extends BasePage {
         return this;
     }
 
+    @Step("Переход на страницу '{label}'")
     public ProjectPage switchPage(String label) {
         switchPageButton(label).click();
         return this;
     }
 
+    @Step("Удаление проекта с названием '{projectName}'")
     public ProjectPage deleteProject(Project project, String projectName) {
         deleteSmallButton(projectName).click();
         DELETE_PROJECT_BUTTON.click();

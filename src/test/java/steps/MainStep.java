@@ -75,7 +75,7 @@ public class MainStep {
     public void useClearButton(String user, String password, String label) {
         loginStep.testWithPositiveCred(user, password);
         mainPage.isPageOpened()
-                .checkClearButton(label);
+                .useClearButton(label);
     }
 
     public void useNavigation(String user, String password, String menuName, String expectedTitle, String expectedUrl) {

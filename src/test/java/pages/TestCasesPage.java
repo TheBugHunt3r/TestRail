@@ -1,6 +1,7 @@
 package pages;
 
 import elements.TestCasesPageElements;
+import io.qameta.allure.Step;
 import pages.base.BasePage;
 import wrappers.Filters;
 
@@ -14,17 +15,20 @@ import static elements.ToDoPageElements.TEST_CASES_TITLE;
 
 public class TestCasesPage extends BasePage {
 
+    @Step("Открытие страницы тест кейсов")
     public TestCasesPage openPage() {
         open(TEST_CASES_URL);
         return this;
     }
 
+    @Step("Проверка открытия страницы тест кейсов")
     public TestCasesPage isPageOpened() {
         openPage();
         TEST_CASES_TITLE.shouldBe(visible);
         return this;
     }
 
+    @Step("Сортировка проектов по '{title}'")
     public TestCasesPage sortTestCases(String title, String expTitle) {
         SORT_TEST_CASES.shouldBe(visible)
                 .click();
