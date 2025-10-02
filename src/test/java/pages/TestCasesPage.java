@@ -32,7 +32,7 @@ public class TestCasesPage extends BasePage {
 
     @Step("Сортировка проектов по '{title}'")
     public TestCasesPage sortTestCases(String title, String expTitle) {
-        logger.info("Сортировка проектов по '{title}'");
+        logger.info("Сортировка проектов по");
         SORT_TEST_CASES.shouldBe(visible)
                 .click();
         Filters.setOption(title);

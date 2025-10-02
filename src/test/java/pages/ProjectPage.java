@@ -32,7 +32,7 @@ public class ProjectPage extends BasePage {
 
     @Step("Создание проекта с названием '{projectName}'")
     public ProjectPage createProject(Project project, String projectName) {
-        logger.info("Создание проекта с названием '{projectName}'");
+        logger.info("Создание проекта с названием");
         setNormalText("Name", projectName);
         setText("Announcement", project.getAnnouncement());
         check("Show the announcement on the overview page");
@@ -58,14 +58,14 @@ public class ProjectPage extends BasePage {
 
     @Step("Переход на страницу '{label}'")
     public ProjectPage switchPage(String label) {
-        logger.info("Переход на страницу '{label}'");
+        logger.info("Переход на следующею страницу");
         switchPageButton(label).click();
         return this;
     }
 
     @Step("Удаление проекта с названием '{projectName}'")
     public ProjectPage deleteProject(Project project, String projectName) {
-        logger.info("Удаление проекта с названием '{projectName}'");
+        logger.info("Удаление проекта с названием");
         deleteSmallButton(projectName).click();
         DELETE_PROJECT_BUTTON.click();
         CONFIRM_DELETE_BUTTON.click();

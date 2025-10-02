@@ -45,7 +45,7 @@ public class MainPage extends BasePage {
 
     @Step("Поиск проекта по названию '{projectName}'")
     public MainPage searchProject(String projectName) {
-        logger.info("Поиск проекта по названию '{projectName}'");
+        logger.info("Поиск проекта по названию");
         SEARCH_PROJECT.shouldBe(visible);
         SEARCH_PROJECT.setValue(projectName);
         chooseButton(projectName).click();
@@ -54,7 +54,7 @@ public class MainPage extends BasePage {
 
     @Step("Поиск проекта '{projectName}' с помощью главной поисковой строки")
     public MainPage useTopSearch(String projectName) {
-        logger.info("Поиск проекта '{projectName}' с помощью главной поисковой строки");
+        logger.info("Поиск проекта с помощью главной поисковой строки");
         TOP_SEARCH.shouldBe(visible)
                 .click();
         TOP_SEARCH.clear();
@@ -75,14 +75,14 @@ public class MainPage extends BasePage {
 
     @Step("Проверка видимости проекта '{projectName}'")
     public MainPage isProjectVisible(String projectName) {
-        logger.info("Проверка видимости проекта '{projectName}'");
+        logger.info("Проверка видимости проекта");
         project(projectName).shouldBe(visible);
         return this;
     }
 
     @Step("Проверка отображения проекта '{projectName}' в избранном")
     public MainPage isProjectInFavorites(String projectName) {
-        logger.info("Проверка отображения проекта '{projectName}' в избранном");
+        logger.info("Проверка отображения проекта в избранном");
         favoriteStar(projectName).shouldBe(visible);
         favoriteStar(projectName).click();
         ACTIVE_PROJECTS.shouldBe(visible);
@@ -91,7 +91,7 @@ public class MainPage extends BasePage {
 
     @Step("Проверка удаления проекта '{projectName}' из избранного")
     public MainPage isProjectDeletedFromFavorites(String projectName) {
-        logger.info("Проверка удаления проекта '{projectName}' из избранного");
+        logger.info("Проверка удаления проекта из избранного");
         removeFavoriteStar(projectName).shouldBe(visible);
         removeFavoriteStar(projectName).click();
         ACTIVE_PROJECTS.shouldNotBe(visible);
@@ -100,7 +100,7 @@ public class MainPage extends BasePage {
 
     @Step("Проверка выбора чекбокса '{label}'")
     public MainPage isCheckBoxesClickable(String label) {
-        logger.info("Проверка выбора чекбокса '{label}'");
+        logger.info("Проверка выбора чекбокса");
         TOP_SEARCH.shouldBe(visible)
                 .click();
         checkBox(label).click();
@@ -110,7 +110,7 @@ public class MainPage extends BasePage {
 
     @Step("Проверка удаления чекбокса '{label}'")
     public MainPage checkRemoveOfCheckBoxes(String label) {
-        logger.info("Проверка удаления чекбокса '{label}'");
+        logger.info("Проверка удаления чекбокса");
         TOP_SEARCH.shouldBe(visible)
                 .click();
         checkBox(label).click();
@@ -132,7 +132,7 @@ public class MainPage extends BasePage {
 
     @Step("Проверка навигации по страницам '{menuName}'")
     public MainPage checkOfNavigation(String menuName, String expectedTitle, String expectedUrl) {
-        logger.info("Проверка навигации по страницам '{menuName}'");
+        logger.info("Проверка навигации по страницам");
         TOP_SEARCH.shouldBe(visible)
                 .click();
         navigation(menuName).click();

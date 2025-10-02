@@ -26,9 +26,9 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @Step("Вход в магазин с именем '{user}' и паролем '{password}'")
+    @Step("Авторизация с именем '{user}' и паролем '{password}'")
     public LoginPage logIn(String user, String password) {
-        logger.info("Вход в магазин с именем '{user}' и паролем '{password}'");
+        logger.info("Вход на страницы авторизации");
         EMAIL_FIELD.setValue(user);
         PASSWORD_FIELD.setValue(password);
         LOGIN_BUTTON.click();
@@ -37,7 +37,7 @@ public class LoginPage extends BasePage {
 
     @Step("Получение ошибки '{expectedText}'")
     public SelenideElement getErrorMessage(String expectedText) {
-        logger.info("Получение ошибки '{expectedText}'");
+        logger.info("Получение ошибки");
         return ERROR_MESSAGE.shouldBe(visible).shouldHave(text(expectedText));
     }
 }

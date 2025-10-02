@@ -52,14 +52,14 @@ public class ToDoPage extends BasePage {
 
     @Step("Выбор тест кейса '{numTestCase}'")
     public ToDoPage chooseTestCase(String numTestCase) {
-        logger.info("Выбор тест кейса '{numTestCase}'");
+        logger.info("Выбор тест кейса");
         chooseTC(numTestCase).click();
         return this;
     }
 
     @Step("Выбор тест рана '{testRunID}'")
     public ToDoPage chooseTestRun(String testRunID) {
-        logger.info("Выбор тест рана '{testRunID}'");
+        logger.info("Выбор тест рана");
         chooseTR(testRunID)
                 .shouldBe(visible).click();
         return this;
@@ -99,7 +99,7 @@ public class ToDoPage extends BasePage {
         return this;
     }
 
-    @Step("Фильтрация тест ранов с использованием '{filterName}' и '{milestoneName}'")
+    @Step("Фильтрация тест ранов")
     public ToDoPage checkFilterTestRun(String filterName, String milestoneName) {
         logger.info("Фильтрация тест ранов с использованием '{filterName}' и '{milestoneName}'");
         FILTER_BUTTON.click();
@@ -110,7 +110,7 @@ public class ToDoPage extends BasePage {
         return this;
     }
 
-    @Step("Фильтрация тест ранов с использованием '{filterName}'")
+    @Step("Фильтрация тест кейсов'")
     public ToDoPage checkFilterTestCase(String filterName) {
         logger.info("Фильтрация тест ранов с использованием '{filterName}'");
         FILTER_BUTTON.click();

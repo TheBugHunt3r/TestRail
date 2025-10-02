@@ -16,6 +16,7 @@ import org.testng.annotations.Optional;
 import pages.*;
 import pages.LoginPage;
 import steps.*;
+import utils.AllureUtils;
 import utils.PropertyReader;
 import utils.TestListener;
 
@@ -61,6 +62,7 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
+        AllureUtils.takeScreenshot();
         Selenide.closeWebDriver();
     }
 }
