@@ -62,7 +62,6 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        AllureUtils.takeScreenshot();
         Selenide.closeWebDriver();
     }
 }
