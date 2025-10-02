@@ -1,6 +1,12 @@
 package pages.base;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pages.LoginPage;
+
 public class BasePage {
+
+    public static final Logger logger = LoggerFactory.getLogger(BasePage.class);
 
     public final String BASE_URL = "https://saucedemo111234555.testrail.io/index.php?/auth/login/LWZhMDA0NWExYzgyM2Uy" +
             "NWUzMDVjMjE3ZmRjNzU1ZWEzMjJkOTZmNWY1MWEwODk0MDNjZDJhN2E1NTQ2YTEzM2Y:";

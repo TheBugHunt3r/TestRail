@@ -23,6 +23,7 @@ public class ProjectPage extends BasePage {
 
     @Step("Проверка открытия страницы проекта")
     public ProjectPage isPageOpened() {
+        logger.info("Проверка открытия страницы проекта");
         LOGO.shouldBe(visible).shouldHave(
                 text("Add Project")
         );
@@ -31,6 +32,7 @@ public class ProjectPage extends BasePage {
 
     @Step("Создание проекта с названием '{projectName}'")
     public ProjectPage createProject(Project project, String projectName) {
+        logger.info("Создание проекта с названием '{projectName}'");
         setNormalText("Name", projectName);
         setText("Announcement", project.getAnnouncement());
         check("Show the announcement on the overview page");
@@ -56,12 +58,14 @@ public class ProjectPage extends BasePage {
 
     @Step("Переход на страницу '{label}'")
     public ProjectPage switchPage(String label) {
+        logger.info("Переход на страницу '{label}'");
         switchPageButton(label).click();
         return this;
     }
 
     @Step("Удаление проекта с названием '{projectName}'")
     public ProjectPage deleteProject(Project project, String projectName) {
+        logger.info("Удаление проекта с названием '{projectName}'");
         deleteSmallButton(projectName).click();
         DELETE_PROJECT_BUTTON.click();
         CONFIRM_DELETE_BUTTON.click();
