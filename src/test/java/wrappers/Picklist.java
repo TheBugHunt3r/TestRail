@@ -2,7 +2,6 @@ package wrappers;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$x;
 import static elements.WrapperElements.getPickList;
 
 public class Picklist {

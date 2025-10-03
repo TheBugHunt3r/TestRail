@@ -1,9 +1,7 @@
 package wrappers;
 
 import com.codeborne.selenide.SelenideElement;
-import elements.WrapperElements;
 
-import static com.codeborne.selenide.Selenide.$x;
 import static elements.WrapperElements.getIntegrationField;
 
 public class IntegrationField {

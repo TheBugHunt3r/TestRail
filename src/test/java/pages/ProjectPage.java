@@ -1,19 +1,16 @@
 package pages;
 
 import dto.Project;
-import elements.ProjectPageElements;
 import io.qameta.allure.Step;
 import pages.base.BasePage;
-import wrappers.*;
-
-import static elements.MainPageElements.LOGO;
-import static elements.ProjectPageElements.*;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static elements.MainPageElements.LOGO;
+import static elements.ProjectPageElements.*;
 import static wrappers.Checkbox.check;
-import static wrappers.Input.*;
+import static wrappers.Input.setBugText;
+import static wrappers.Input.setNormalText;
 import static wrappers.IntegrationField.setOption;
 import static wrappers.Picklist.selectOption;
 import static wrappers.RadioButton.select;
@@ -44,7 +41,6 @@ public class ProjectPage extends BasePage {
         switchPage("Defects");
         setOption("Defect Plugin", option);
         setBugText("Defect View Url", project.getDefect_view_url());
-        ;
         setBugText("Defect Add Url", project.getDefect_add_url());
         switchPage("References");
         setOption("Reference Plugin", option);

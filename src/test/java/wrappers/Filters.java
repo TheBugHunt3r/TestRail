@@ -1,9 +1,7 @@
 package wrappers;
 
-import elements.WrapperElements;
-
-import static com.codeborne.selenide.Selenide.$x;
-import static elements.WrapperElements.*;
+import static elements.WrapperElements.FILTER;
+import static elements.WrapperElements.getFilter;
 
 public class Filters {
 

@@ -5,22 +5,14 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Optional;
-import pages.*;
-import pages.LoginPage;
+import pages.MainPage;
 import steps.*;
-import utils.AllureUtils;
 import utils.PropertyReader;
 import utils.TestListener;
-
-import java.awt.*;
 
 @Listeners(TestListener.class)
 public class BaseTest {

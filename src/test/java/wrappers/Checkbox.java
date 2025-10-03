@@ -1,8 +1,5 @@
 package wrappers;
 
-import elements.WrapperElements;
-
-import static com.codeborne.selenide.Selenide.$x;
 import static elements.WrapperElements.checkbox;
 
 public class Checkbox {

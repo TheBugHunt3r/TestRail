@@ -1,9 +1,7 @@
 package elements;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class MainPageElements {
@@ -32,14 +30,13 @@ public class MainPageElements {
     public final static SelenideElement SEARCH_RESULT = $x("//div[@id='newSearchResultsContent']//p[1]");
     public final static SelenideElement ACTIVE_PROJECTS = $x("//h2[@id='activeHeader']");
     public final static SelenideElement PAGE_TITLE = $x("//div[@class='content-header-title page_title']");
-
+    public final static String CHECK_BOX = "//label[normalize-space()='%s']";
+    public final static String NAVIGATION = "//a[normalize-space()='%s']";
     // ===== String format locators =====
     private final static String DROPDOWN_MENU = "//a[contains(@class, 'dropdown-menu-link ') and contains(text(), '%s')]";
     private final static String PROJECT = "//div[@class='summary-title text-ppp']//a[contains(text(),'%s')]";
     private final static String ADD_STAR = "//a[@id='project-star-3' and following::a[contains(text(),'%s')]]";
     private final static String REMOVE_STAR = "//a[@id='project-starred-3' and following::a[contains(text(),'%s')]]";
-    public final static String CHECK_BOX = "//label[normalize-space()='%s']";
-    public final static String NAVIGATION = "//a[normalize-space()='%s']";
 
     // ===== Active Locators =====
     public static SelenideElement chooseButton(String projectName) {

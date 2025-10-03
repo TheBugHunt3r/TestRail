@@ -1,14 +1,11 @@
 package pages;
 
-import com.codeborne.selenide.SelenideElement;
-import elements.MainPageElements;
 import io.qameta.allure.Step;
 import pages.base.BasePage;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
-
 import static elements.MainPageElements.*;
 
 public class MainPage extends BasePage {

@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import pages.LoginPage;
 import pages.MainPage;
 import pages.ProjectPage;
-import pages.base.BasePage;
 
 public class MainStep {
 

@@ -4,11 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.LoginPage;
 import pages.MainPage;
-import pages.base.BasePage;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.open;
 import static elements.LoginPageElements.*;
 
 public class LoginStep {

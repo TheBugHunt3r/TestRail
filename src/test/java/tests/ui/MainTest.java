@@ -1,13 +1,10 @@
 package tests.ui;
 
+import dto.NavigationData;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
-
-import dto.NavigationData;
 import tests.base.BaseTest;
 import utils.retry.RetryAnalyzer;
-
-import static com.codeborne.selenide.Selenide.$;
 
 public class MainTest extends BaseTest {
 
