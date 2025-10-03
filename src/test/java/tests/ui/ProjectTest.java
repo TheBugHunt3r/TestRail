@@ -9,13 +9,17 @@ import utils.retry.RetryAnalyzer;
 
 public class ProjectTest extends BaseTest {
 
+    protected static String projectName = "Star";
+    protected static String defaultAccess = "Tester";
+    protected static String defectPlugin = "Asana";
+
     @Owner("Alisa")
     @Description("Тест создания проекта")
     @Story("Проверка создания проекта")
     @Test(testName = "Проверка создания проекта", description = "Тест создания проекта",
             retryAnalyzer = RetryAnalyzer.class)
     public void checkCreateProject() {
-        projectStep.isProjectCreated(user, password, "Star", "Tester", "Asana");
+        projectStep.isProjectCreated(user, password, projectName, defaultAccess, defectPlugin);
     }
 
     @Owner("Alisa")
@@ -24,6 +28,6 @@ public class ProjectTest extends BaseTest {
     @Test(testName = "Проверка удаления проекта", description = "Тест удаления проекта",
             retryAnalyzer = RetryAnalyzer.class)
     public void checkDeleteProject() {
-        projectStep.isProjectDeleted(user, password, "Star", "Tester", "Asana");
+        projectStep.isProjectDeleted(user, password, projectName, defaultAccess, defectPlugin);
     }
 }

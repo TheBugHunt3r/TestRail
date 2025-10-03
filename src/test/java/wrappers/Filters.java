@@ -3,8 +3,7 @@ package wrappers;
 import elements.WrapperElements;
 
 import static com.codeborne.selenide.Selenide.$x;
-import static elements.WrapperElements.FILTER;
-import static elements.WrapperElements.getFILTER;
+import static elements.WrapperElements.*;
 
 public class Filters {
 
@@ -19,7 +18,7 @@ public class Filters {
     }
 
     public static void setOption(String option) {
-        getFILTER(option).click();
+        getFilter(option).click();
     }
 }
 

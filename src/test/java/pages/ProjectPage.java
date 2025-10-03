@@ -67,7 +67,7 @@ public class ProjectPage extends BasePage {
     @Step("Удаление проекта с названием '{projectName}'")
     public ProjectPage deleteProject(Project project, String projectName) {
         logger.info("Удаление проекта");
-        deleteSmallButton(projectName).click();
+        deleteCrossButton(projectName).click();
         DELETE_PROJECT_BUTTON.click();
         CONFIRM_DELETE_BUTTON.click();
         DELETE_LOGO.shouldBe(visible);
