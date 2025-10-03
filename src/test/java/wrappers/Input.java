@@ -1,11 +1,8 @@
 package wrappers;
 
 import com.codeborne.selenide.SelenideElement;
-import elements.WrapperElements;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 import static elements.WrapperElements.getBugInput;
 import static elements.WrapperElements.getNormalInput;
 

@@ -1,12 +1,10 @@
 package pages;
 
-import elements.TestCasesPageElements;
 import io.qameta.allure.Step;
 import pages.base.BasePage;
 import wrappers.Filters;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 import static elements.TestCasesPageElements.SORT_BUTTON;
 import static elements.TestCasesPageElements.sortTitle;

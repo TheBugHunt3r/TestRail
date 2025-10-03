@@ -3,7 +3,6 @@ package steps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.ToDoPage;
-import pages.base.BasePage;
 
 public class ToDoStep {
 

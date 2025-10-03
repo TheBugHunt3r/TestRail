@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.MainPage;
 import pages.ProjectPage;
-import pages.base.BasePage;
 
 public class ProjectStep {
 
@@ -22,7 +21,7 @@ public class ProjectStep {
         loginStep = new LoginStep();
     }
 
-    public void isProjectCreated(String user, String password, String projectName,  String select, String option) {
+    public void isProjectCreated(String user, String password, String projectName, String select, String option) {
         logger.info("Проверка создания проекта");
         Project project = ProjectFactory.createProject();
         loginStep.testWithPositiveCred(user, password);
