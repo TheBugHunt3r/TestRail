@@ -10,6 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.MainPage;
+import pages.TestRunPage;
 import steps.*;
 import utils.PropertyReader;
 import utils.TestListener;
@@ -23,6 +24,8 @@ public class BaseTest {
     protected ProjectStep projectStep;
     protected TestCaseStep testCaseStep;
     protected ToDoStep toDoStep;
+    protected TestRunPage testRunPage;
+    protected TestRunsStep testRunsStep;
 
     protected String user = System.getProperty("user", PropertyReader.getProperty("user"));
     protected String password = System.getProperty("password", PropertyReader.getProperty("password"));
@@ -58,6 +61,8 @@ public class BaseTest {
         testCaseStep = new TestCaseStep();
         toDoStep = new ToDoStep();
         mainPage = new MainPage();
+        testRunPage = new TestRunPage();
+        testRunsStep = new TestRunsStep();
 
         Configuration.browserCapabilities = options;
 
