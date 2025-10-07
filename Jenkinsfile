@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'M3' // Maven должен быть настроен в Jenkins → Global Tool Configuration
+        maven 'maven 3.9.6' // Maven должен быть настроен в Jenkins → Global Tool Configuration
     }
 
     environment {
