@@ -1,15 +1,20 @@
 package pages;
 
+import com.codeborne.selenide.SelenideElement;
+import pages.base.BasePage;
+
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
-public class OverviewPage {
+public class OverviewPage extends BasePage {
+
+    protected final static SelenideElement OVERVIEW_ACTIVE = $x("//a[@data-testid='navigateToMilestoneActivityButton']");
 
     public void openPage() {
-        open("https://saucedemo111234555.testrail.io/index.php?/milestones/view/5");
+        open(OVERVIEW_URL);
     }
 
     public void clickActivity() {
-        $x("//a[@data-testid='navigateToMilestoneActivityButton']").click();
+        OVERVIEW_ACTIVE.click();
     }
 }

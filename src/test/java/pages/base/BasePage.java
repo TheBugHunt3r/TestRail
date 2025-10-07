@@ -15,4 +15,5 @@ public class BasePage {
     protected final String PROJECT_URL = "https://saucedemo111234555.testrail.io/index.php?/admin/projects/add/1";
     protected final String TEST_RUNS_URL = "https://saucedemo111234555.testrail.io/index.php?/runs/overview/3";
     protected final String MILESTONE_URL = "https://saucedemo111234555.testrail.io/index.php?/milestones/overview/3";
+    protected final String OVERVIEW_URL = "https://saucedemo111234555.testrail.io/index.php?/milestones/view/5";
 }
