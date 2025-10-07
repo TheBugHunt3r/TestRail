@@ -2,11 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/TheBugHunt3r/TestRail.git'
-            }
-        }
+
 
         stage('Build & Test') {
             steps {
