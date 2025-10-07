@@ -18,12 +18,13 @@ public class ToDoPageElements {
     public final static SelenideElement APPLY_FILTER_BUTTON = $x("//a[@class='button button-left" +
             " button-positive button-dark button-ok']");
     public final static SelenideElement FILTER_BUTTON = $x("//span[@id='filterByEmpty']");
-    public final static SelenideElement REMOVE_GROUP_BUTTON = $x("//div[@class='icon-orderreset']");
+    public final static SelenideElement REMOVE_GROUP_BUTTON = $x("//span[@id='groupByReset']//div[@class='icon-orderreset']");
+    public final static SelenideElement REMOVE_GROUP_RUN = $x("//span[@id='filterReset']//div[@class='icon-orderreset']");
     public final static SelenideElement NEXT_BUTTON = $x("//div[@class='icon-direction-next']");
     public final static SelenideElement TEST_CASES_TAB = $x("//a[@id='navigation-todos-overview-cases']");
 
     // ===== Active Elements =====
-    public final static SelenideElement TEST_RUN = $x("//a[@id='run-link-id-13']");
+    public final static SelenideElement TEST_RUN = $x("//a[@id='run-link-id-18']");
     public final static SelenideElement TESTS_RESULTS = $x("//a[@data-testid='navigateToRunStatusButton']");
     public final static SelenideElement FILTER_INPUT = $x("//div[@id='milestoneSelection_chosen']//input[@type='text']");
     public final static SelenideElement SORT_TEST_CASES = $x("//span[@id='orderByEmpty']");

@@ -14,4 +14,5 @@ public class BasePage {
             "&group_by=cases:section_id&group_order=asc&display=tree&display_deleted_cases=0";
     protected final String PROJECT_URL = "https://saucedemo111234555.testrail.io/index.php?/admin/projects/add/1";
     protected final String TEST_RUNS_URL = "https://saucedemo111234555.testrail.io/index.php?/runs/overview/3";
+    protected final String MILESTONE_URL = "https://saucedemo111234555.testrail.io/index.php?/milestones/overview/3";
 }

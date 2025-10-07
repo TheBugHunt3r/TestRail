@@ -57,4 +57,12 @@ public class NavigationData {
                 {"Updated On", "Updated On", "Updated On"}
         };
     }
+
+    @DataProvider(name = "milestoneOverview")
+    public Object[][] milestoneOverview() {
+        return new Object[][]{
+                {"Status", "Status", "https://saucedemo111234555.testrail.io/index.php?/milestones/view/5"},
+                {"Activity", "Activity", "https://saucedemo111234555.testrail.io/index.php?/milestones/activity/5"}
+        };
+    }
 }

@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import pages.base.BasePage;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 import static elements.MainPageElements.*;
@@ -52,10 +53,12 @@ public class MainPage extends BasePage {
     @Step("Поиск проекта '{projectName}' с помощью главной поисковой строки")
     public MainPage useTopSearch(String projectName) {
         logger.info("Поиск проекта с помощью главной поисковой строки");
-        TOP_SEARCH.shouldBe(visible)
-                .click();
-        TOP_SEARCH.clear();
-        TOP_SEARCH.setValue(projectName);
+        TOP_SEARCH.shouldBe(visible).click();
+        executeJavaScript(
+                "document.getElementById('search_query').value='" + projectName + "';" +
+                        "document.getElementById('search_query').dispatchEvent(new Event('input'));"
+        );
+        TOP_SEARCH.sendKeys("a");
         SEARCH_RESULT.click();
         PAGE_TITLE.shouldBe(visible);
         return this;

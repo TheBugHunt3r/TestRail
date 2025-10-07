@@ -40,7 +40,7 @@ public class TestCasesAdapters {
                 "    ]\n" +
                 "}");
         TestCase testCase = new TestCase("Login with valid credentials", "These are the preconditions for a test case");
-        Response response1 = TestCasesAdapters.addCase(1,testCase);
+        Response response1 = TestCasesAdapters.addCase(1, testCase);
         System.out.println("Status code: " + response1.getStatusCode());
         System.out.println("Response: " + response1.asString());
     }

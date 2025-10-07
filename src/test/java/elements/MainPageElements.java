@@ -19,7 +19,7 @@ public class MainPageElements {
 
     // ===== Inputs =====
     public final static SelenideElement SEARCH_PROJECT = $x("//input[@data-testid='searchProjectInput']");
-    public final static SelenideElement TOP_SEARCH = $x("//input[@name='query']");
+    public final static SelenideElement TOP_SEARCH = $x("//input[@id='search_query']");
     public final static SelenideElement DROP_LINK = $x("//a[@id='navigation-user']");
 
     // ===== Labels =====

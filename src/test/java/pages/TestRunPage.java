@@ -1,6 +1,5 @@
 package pages;
 
-import elements.TestRunPageElements;
 import io.qameta.allure.Step;
 import pages.base.BasePage;
 
@@ -9,7 +8,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static elements.AddTestPlanPageElements.ADD_TEST_PLAN_LOGO;
 import static elements.AddTestRunPageElements.ADD_TEST_RUN_LOGO;
-import static elements.MainPageElements.LOGO;
 import static elements.TestRunPageElements.*;
 
 public class TestRunPage extends BasePage {
@@ -62,7 +60,6 @@ public class TestRunPage extends BasePage {
         DELETE_MESSAGE.shouldBe(visible);
         return this;
     }
-
 
 
 }

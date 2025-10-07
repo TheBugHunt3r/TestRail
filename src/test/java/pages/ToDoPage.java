@@ -5,6 +5,7 @@ import pages.base.BasePage;
 import wrappers.Filters;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 import static elements.ToDoPageElements.*;
 import static wrappers.Filters.select;
@@ -94,7 +95,7 @@ public class ToDoPage extends BasePage {
         select();
         Filters.setOption(menuName);
         groupTR(menuName).shouldBe(visible);
-        REMOVE_GROUP_BUTTON.click();
+        REMOVE_GROUP_RUN.click();
         return this;
     }
 
@@ -106,6 +107,7 @@ public class ToDoPage extends BasePage {
         FILTER_INPUT.setValue(milestoneName);
         APPLY_FILTER_BUTTON.click();
         filterTRTitle(filterName).shouldBe(visible);
+        $x("//span[@id='filterReset']//div[@class='icon-orderreset']").click();
         return this;
     }
 
@@ -116,6 +118,7 @@ public class ToDoPage extends BasePage {
         filterTC(filterName).click();
         APPLY_FILTER_BUTTON.click();
         filterTCTitle(filterName).shouldBe(visible);
+        $x("//span[@id='filterReset']//div[@class='icon-orderreset']").click();
         return this;
     }
 }

@@ -52,7 +52,7 @@ public class ToDoTest extends BaseTest {
     @Test(testName = "Проверка открытия вкладки тест рана", description = "Тест открытия вкладки тест рана",
             retryAnalyzer = RetryAnalyzer.class)
     public void checkChooseTestRun() {
-        toDoStep.chooseTestRun(user, password, "13");
+        toDoStep.chooseTestRun(user, password, "18");
     }
 
     @Owner("Stanislaw")

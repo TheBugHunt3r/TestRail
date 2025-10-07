@@ -1,10 +1,8 @@
 package adapters;
 
 import adapters.base.BaseAdapters;
-import com.google.gson.JsonObject;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import models.Project;
 
 import static adapters.ProjectAdapters.deletes;
 

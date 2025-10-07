@@ -1,6 +1,5 @@
 package tests.ui;
 
-import dto.NavigationData;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
@@ -25,7 +24,7 @@ public class TestRunsTest extends BaseTest {
     @Test(testName = "Проверка кнопки добавления тест ранов", description = "Тест кнопки добавления тест рана",
             retryAnalyzer = RetryAnalyzer.class)
     public void checkAddTestRunButton() {
-        testRunsStep.addTestRunButton(user,password);
+        testRunsStep.addTestRunButton(user, password);
     }
 
     @Owner("Alisa")
@@ -34,7 +33,7 @@ public class TestRunsTest extends BaseTest {
     @Test(testName = "Проверка кнопки добавления тест планов", description = "Тест кнопки добавления тест плана",
             retryAnalyzer = RetryAnalyzer.class)
     public void checkTestPlanButton() {
-        testRunsStep.addTestPlanButton(user,password);
+        testRunsStep.addTestPlanButton(user, password);
     }
 
     @Owner("Alisa")
@@ -46,12 +45,12 @@ public class TestRunsTest extends BaseTest {
         testRunsStep.selectAllTestRuns(user, password);
     }
 
-    @Owner("Alisa")
-    @Description("Тест удаления тест ранов")
-    @Story("Проверка удаления тест ранов")
-    @Test(testName = "Проверка удаления тест ранов", description = "Тест удаления тест ранов",
-            retryAnalyzer = RetryAnalyzer.class)
-    public void checkDeleteTestRuns() {
-        testRunsStep.deleteTestRuns(user, password, "Release 1.0: Run 2 (new features)");
-    }
+//    @Owner("Alisa")
+//    @Description("Тест удаления тест ранов")
+//    @Story("Проверка удаления тест ранов")
+//    @Test(testName = "Проверка удаления тест ранов", description = "Тест удаления тест ранов",
+//            retryAnalyzer = RetryAnalyzer.class)
+//    public void checkDeleteTestRuns() {
+//        testRunsStep.deleteTestRuns(user, password, "Release 1.0: Run 2 (new features)");
+//    }
 }

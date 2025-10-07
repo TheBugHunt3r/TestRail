@@ -9,7 +9,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import pages.AddTestRunPage;
 import pages.MainPage;
+import pages.OverviewPage;
 import pages.TestRunPage;
 import steps.*;
 import utils.PropertyReader;
@@ -26,6 +28,9 @@ public class BaseTest {
     protected ToDoStep toDoStep;
     protected TestRunPage testRunPage;
     protected TestRunsStep testRunsStep;
+    protected AddTestRunPage addTestRunPage;
+    protected MilestoneStep milestoneStep;
+    protected OverviewPage overviewPage;
 
     protected String user = System.getProperty("user", PropertyReader.getProperty("user"));
     protected String password = System.getProperty("password", PropertyReader.getProperty("password"));
@@ -36,10 +41,10 @@ public class BaseTest {
         boolean headless = Boolean.parseBoolean(System.getProperty("headless", "true"));
 
         Configuration.browser = browser;
-        //Configuration.headless = headless;
-        //Configuration.browserSize = "1920x1080";
+        Configuration.headless = headless;
+        Configuration.browserSize = "1920x1080";
         Configuration.timeout = 15000;
-        //Configuration.browserPosition = "0x0";
+        Configuration.browserPosition = "0x0";
         Configuration.clickViaJs = true;
         Configuration.remote = System.getProperty("remote", null);
         Configuration.remote = System.getProperty("remote", null);
@@ -47,7 +52,7 @@ public class BaseTest {
         // Настройка ChromeOptions для Jenkins
         ChromeOptions options = new ChromeOptions();
         if (headless) {
-            //options.addArguments("--headless=new");
+            options.addArguments("--headless=new");
         }
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
@@ -63,6 +68,10 @@ public class BaseTest {
         mainPage = new MainPage();
         testRunPage = new TestRunPage();
         testRunsStep = new TestRunsStep();
+        addTestRunPage = new AddTestRunPage();
+        milestoneStep = new MilestoneStep();
+        overviewPage = new OverviewPage();
+
 
         Configuration.browserCapabilities = options;
 

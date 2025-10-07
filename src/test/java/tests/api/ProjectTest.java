@@ -8,9 +8,9 @@ import static adapters.ProjectAPI.deleteProject;
 public class ProjectTest {
 
     @Test
-        public void CreatingOfProjectTest() {
+    public void CreatingOfProjectTest() {
         createProject();
-        }
+    }
 
     @Test
     public void DeletingOfProjectTest() {

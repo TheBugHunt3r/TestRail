@@ -8,5 +8,5 @@ public class AddTestRunPageElements {
 
     // ===== Labels =====
     public final static SelenideElement ADD_TEST_RUN_LOGO = $x("//div[@data-testid='testCaseContentHeaderTitle']");
-
+    public final static SelenideElement SUCCESS_ADDING = $x("//div[@class='message message-success']");
 }
