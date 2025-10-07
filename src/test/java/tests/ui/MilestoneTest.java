@@ -35,13 +35,4 @@ public class MilestoneTest extends BaseTest {
     public void checkSelectAllMilestones() {
         milestoneStep.selectAllMilestones(user, password);
     }
-
-//    @Owner("Stanislaw")
-//    @Description("Тест удаления milestone")
-//    @Story("Проверка удаления milestone")
-//    @Test(testName = "Проверка удаления milestone", description = "Тест удаления milestone",
-//            retryAnalyzer = RetryAnalyzer.class)
-//    public void checkDeleteMilestone() {
-//        milestoneStep.deleteMilestones(user, password, "Release 1.1");
-//    }
 }

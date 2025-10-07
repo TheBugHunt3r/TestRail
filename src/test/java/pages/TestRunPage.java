@@ -60,6 +60,4 @@ public class TestRunPage extends BasePage {
         DELETE_MESSAGE.shouldBe(visible);
         return this;
     }
-
-
 }

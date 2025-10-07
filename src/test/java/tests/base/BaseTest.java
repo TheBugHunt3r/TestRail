@@ -47,18 +47,30 @@ public class BaseTest {
         Configuration.browserPosition = "0x0";
         Configuration.clickViaJs = true;
         Configuration.remote = System.getProperty("remote", null);
-        Configuration.remote = System.getProperty("remote", null);
 
-        // Настройка ChromeOptions для Jenkins
-        ChromeOptions options = new ChromeOptions();
-        if (headless) {
-            options.addArguments("--headless=new");
+        if (browser.equals("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            if (headless) {
+                options.addArguments("--headless=new");
+            }
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
+            options.addArguments("--remote-allow-origins=*");
+            Configuration.browserCapabilities = options;
         }
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--window-size=1920,1080");
-        options.addArguments("--remote-allow-origins=*");
+
+        if (browser.equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+        }
+
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(true)
+                .includeSelenideSteps(false)
+        );
 
         loginStep = new LoginStep();
         mainStep = new MainStep();
@@ -71,17 +83,6 @@ public class BaseTest {
         addTestRunPage = new AddTestRunPage();
         milestoneStep = new MilestoneStep();
         overviewPage = new OverviewPage();
-
-
-        Configuration.browserCapabilities = options;
-
-        WebDriverManager.chromedriver().setup();
-
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
-                .screenshots(true)
-                .savePageSource(true)
-                .includeSelenideSteps(false)
-        );
     }
 
     @AfterMethod
