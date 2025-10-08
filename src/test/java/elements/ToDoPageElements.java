@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class ToDoPageElements {
 
-
     // ===== Labels =====
     public final static SelenideElement TO_DO_TITLE = $x("//div[@data-testid='testCaseContentHeaderTitle']");
     public final static SelenideElement TEST_CASES_TITLE = $x("//div[@data-testid='testCaseContentHeaderTitle']");

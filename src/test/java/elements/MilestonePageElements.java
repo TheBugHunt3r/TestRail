@@ -6,6 +6,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class MilestonePageElements {
 
+    // ===== Buttons =====
     public final static SelenideElement ADD_MILESTONE = $x("//a[@id='navigation-milestones-add']");
     public final static SelenideElement ADD_MILESTONE_TITTLE = $x("//div[@class='content-header-title page_title']");
     public final static String DELETE_MILESTONE = "//a[contains(text(), '%s')]" +

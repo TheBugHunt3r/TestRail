@@ -14,7 +14,6 @@ public class TestCasesAdapters {
     public static void createTestCase() {
         RestAssured.baseURI = BASE_URL;
 
-
         BaseAdapters baseAdapters = new BaseAdapters();
         Response response = baseAdapters.post("index.php?/api/v2/add_case/1", "{\n" +
                 "    \"title\": \"This is a test case\",\n" +

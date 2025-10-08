@@ -44,13 +44,4 @@ public class TestRunsTest extends BaseTest {
     public void checkSelectAllTestRuns() {
         testRunsStep.selectAllTestRuns(user, password);
     }
-
-//    @Owner("Alisa")
-//    @Description("Тест удаления тест ранов")
-//    @Story("Проверка удаления тест ранов")
-//    @Test(testName = "Проверка удаления тест ранов", description = "Тест удаления тест ранов",
-//            retryAnalyzer = RetryAnalyzer.class)
-//    public void checkDeleteTestRuns() {
-//        testRunsStep.deleteTestRuns(user, password, "Release 1.0: Run 2 (new features)");
-//    }
 }

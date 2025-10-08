@@ -30,7 +30,6 @@ public class NavigationData {
     public Object[][] groupTestRuns() {
         return new Object[][]{
                 {"Milestone", "Milestone", "Design"},
-//                {"Test Plan", "Test Plan", "Wednesday, September 10, 2025"}, Добавить уникальность
                 {"Day", "Day", "September 2025"},
                 {"Month", "Month", "September 2025"}
         };

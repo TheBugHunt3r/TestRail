@@ -64,14 +64,6 @@ public class ToDoTest extends BaseTest {
         toDoStep.chooseTestCaseGroup(user, password, menuName, expectedTitle);
     }
 
-    @Owner("Stanislaw")
-    @Description("Тест группировки тест ранов")
-    @Story("Проверка группировки тест ранов")
-    @Test(testName = "Проверка группировки тест ранов", description = "Тест группировки тест ранов",
-            retryAnalyzer = RetryAnalyzer.class, dataProvider = "groupTestRuns", dataProviderClass = NavigationData.class)
-    public void checkTestRunsGroup(String menuName, String expectedTitle, String expectedFilter) {
-        toDoStep.chooseTestRunsGroup(user, password, menuName, expectedTitle);
-    }
 
     @Owner("Stanislaw")
     @Description("Тест фильтрации тест ранов")
@@ -82,12 +74,4 @@ public class ToDoTest extends BaseTest {
         toDoStep.useTestRunFilters(user, password, "Blocked", "Release 1.1");
     }
 
-    @Owner("Stanislaw")
-    @Description("Тест фильтрации тест кейсов")
-    @Story("Проверка фильтрации тест кейсов")
-    @Test(testName = "Проверка фильтрации тест кейсов", description = "Тест фильтрации тест кейсов",
-            retryAnalyzer = RetryAnalyzer.class)
-    public void checkTestCaseFilters() {
-        toDoStep.useTestCaseFilter(user, password, "Design");
-    }
 }

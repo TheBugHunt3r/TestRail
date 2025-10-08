@@ -17,6 +17,4 @@ public class AddTestPlanPage extends BasePage {
         );
         return this;
     }
-
-
 }
