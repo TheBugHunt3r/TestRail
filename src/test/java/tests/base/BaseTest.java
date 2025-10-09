@@ -69,7 +69,7 @@ public class BaseTest {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true)
-                .includeSelenideSteps(false)
+                .includeSelenideSteps(true)
         );
 
         loginStep = new LoginStep();
